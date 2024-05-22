@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 html {
   font-size: 8px;
   scroll-behavior: smooth;
+  font-family: poppins;
   @media screen and (max-width: 800px) {
     font-size: 7px;
   }

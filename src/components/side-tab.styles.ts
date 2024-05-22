@@ -47,6 +47,7 @@ export const SideTabStyled = styled.nav`
     overflow-y: auto;
     .nav-list {
       /* ${debug}; */
+      list-style-type: none;
       width: 100%;
       height: max-content;
       height: 35rem;

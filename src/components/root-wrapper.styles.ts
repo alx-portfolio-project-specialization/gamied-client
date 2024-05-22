@@ -5,6 +5,8 @@ export const RootWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
   gap: var(--margin_M);
+  background-color: var(--bright-color);
+  border: 1px solid var(--label-color);
   @media screen and (max-width: 800px) {
     width: 100%;
   }
