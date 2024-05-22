@@ -66,12 +66,6 @@ body > script {
   justify-content: flex-start;
 }
 
-section {
-  width: 100%;
-  height: max-content;
-  min-height: 60rem;
-  overflow: hidden;
-}
 
 :root {
   --primary-color: #272727;
