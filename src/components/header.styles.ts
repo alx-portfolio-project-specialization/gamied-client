@@ -38,7 +38,7 @@ export const HeaderSearchBoxStyled = styled.form`
       &:focus-visible,
       &:focus {
         & + svg {
-          transform: scale(0.6);
+          transform: scale(0.4);
         }
       }
     }
@@ -47,7 +47,7 @@ export const HeaderSearchBoxStyled = styled.form`
       cursor: pointer;
       width: 100%;
       height: 100%;
-      transform: scale(0.8);
+      transform: scale(0.6);
     }
   }
 `;

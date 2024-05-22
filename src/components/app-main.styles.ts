@@ -12,6 +12,10 @@ export const AppMainStyled = styled.main`
   .home-section-title {
     font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
+
+		/* font-family: poppins; */
+		/* font-weight: 500; */
+
     text-transform: capitalize;
   }
   .app-main-content {

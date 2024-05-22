@@ -13,6 +13,12 @@ html {
   @media screen and (max-width: 800px) {
     font-size: 7px;
   }
+  @media screen and (min-width: 1500px) {
+    font-size: 10px;
+  }
+  @media screen and (min-width: 2500px) {
+    font-size: 15px;
+  }
 }
 *,
 *::before,
