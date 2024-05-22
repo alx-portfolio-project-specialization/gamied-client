@@ -197,10 +197,11 @@ export const SideTabStyled = styled.nav`
       justify-content: center;
       gap: 20%;
       .notif-text {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: var(--bright-color);
         text-align: center;
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
       }
       .notif-box-cta {
         width: 60%;
