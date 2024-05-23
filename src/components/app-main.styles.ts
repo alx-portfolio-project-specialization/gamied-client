@@ -58,6 +58,7 @@ export const WelcomeBoardStyled = styled.div`
     h2 {
       font-size: 3.5rem;
       color: var(--bright-color);
+      margin-top: 1.5rem;
     }
   }
   .wp-right {
