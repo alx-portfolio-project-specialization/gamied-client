@@ -1,20 +1,18 @@
-import { AppMain } from "./components/app-main";
-import { Header } from "./components/header";
+import { Outlet } from "react-router-dom";
 import { RootWrapperStyled } from "./components/root-wrapper.styles";
 import { SideTab } from "./components/side-tab";
+import { Header } from "./components/header";
 
 function App() {
-
   return (
     <div id="app">
-
       <div className="side-tab-wrapper">
-        <SideTab/>
+        <SideTab />
       </div>
 
       <RootWrapperStyled>
-        <Header/>
-        <AppMain/>
+        <Header />
+        <Outlet />
       </RootWrapperStyled>
     </div>
   );
