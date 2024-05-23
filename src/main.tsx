@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
 import { Home } from "./pages/home.tsx";
 import { Root } from "./pages/root.tsx";
+import { Course } from "./pages/course.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
       {
         path: "home",
         element: <Home />,
+      },
+      {
+        path: "courses/:course_id",
+        element: <Course />,
       },
       {
         index: true,

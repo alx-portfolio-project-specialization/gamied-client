@@ -2,9 +2,7 @@ import styled from "styled-components";
 import { debug } from "../styles/globals";
 
 export const AppMainStyled = styled.main`
-  /* width: 100%; */
   flex: 1;
-  /* max-width: 50vw; */
   height: max-content;
   display: flex;
   justify-content: flex-start;
