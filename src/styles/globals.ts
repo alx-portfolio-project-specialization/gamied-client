@@ -47,8 +47,8 @@ body, #root {
     height: max-content;
     min-height: 100vh;
     display: flex;
-    ${debug};
     gap: 2rem;
+    background-color: var(--bg-color);
     @media screen and (max-width: 800px) {
       gap: unset;
     }
@@ -90,7 +90,7 @@ body > script {
   --inactive-text-color: #BABABA;
   --progress-color: #35AC65;
   --badge-bg-color: rgba(231, 233, 124, 0.42);
-  --aside-tab-bg: rgba(159, 233, 124, 0.42)
+  --aside-tab-bg: rgba(159, 233, 124, 0.42);
 
   //box model
   --padding_S: 1rem;

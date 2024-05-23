@@ -2,16 +2,22 @@ import styled from "styled-components";
 import { debug } from "../styles/globals";
 
 export const AppMainStyled = styled.main`
-  width: 100%;
+  /* width: 100%; */
   flex: 1;
+  /* max-width: 50vw; */
   height: max-content;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding: var(--padding_M) 0 0 var(--padding_M);
   --section-width-here: 95%;
+  /* background-color: green; */
+
   .home-section-title {
     font-size: 1.8rem;
     font-family: poppins;
     font-weight: 500;
+    color: var(--text-color);
 
     /* font-family: poppins; */
     /* font-weight: 500; */
@@ -20,12 +26,14 @@ export const AppMainStyled = styled.main`
   }
   .app-main-content {
     flex: 1;
+    max-width: 54vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 4rem;
     margin-bottom: var(--margin_XL);
+    margin-right: -2rem;
   }
 `;
 
@@ -232,6 +240,7 @@ export const RecommendedCourseSectionStyled = styled.section`
             height: max-content;
             text-align: center;
             margin-top: 2rem;
+            color: var(--text-color);
           }
           .count-and-cta-div {
             width: 100%;
@@ -241,8 +250,11 @@ export const RecommendedCourseSectionStyled = styled.section`
             justify-content: space-between;
             padding: 0 var(--padding_M);
             h3 {
+              font-family: montserrat;
+              font-weight: 500;
               font-size: 1.5rem;
               width: max-content;
+              color: var(--text-color);
             }
             button {
               width: 12rem;
