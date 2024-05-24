@@ -14,7 +14,7 @@ export const CourseBannerStyled = styled.div`
   overflow: hidden;
   gap: 1.5rem;
   font-family: poppins;
-  margin-bottom: var(--margin_XL);
+  margin-bottom: 8rem;
   & > * {
     z-index: 2;
     position: relative;
