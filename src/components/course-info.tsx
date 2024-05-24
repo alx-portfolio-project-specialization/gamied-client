@@ -1,4 +1,6 @@
+import { CourseContentIcon } from "./course-content-icon";
 import { CourseInfoStyled } from "./course-info.styles";
+import { CourseStatInfo } from "./course-stat-info";
 
 export const CourseInfo: React.FC = () => {
   return (
@@ -47,7 +49,7 @@ export const CourseInfo: React.FC = () => {
 
             <div className="coa-bottom">
               <div className="course-outline-accordion">
-                <div className="accordion-head">
+                <div className="accordion-head first">
                   <p>Getting Started</p>
                   <div className="head-right">
                     <div className="duration-details">
@@ -71,21 +73,19 @@ export const CourseInfo: React.FC = () => {
                 </div>
                 <ul className="accordion-content-list">
                   <li className="accordion-content">
-                    <span className="content-type-image-wrapper">
-                      <svg viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M11 4.33333L14.7942 2.43667C14.9212 2.3732 15.0623 2.34323 15.2042 2.34962C15.346 2.35601 15.4839 2.39854 15.6047 2.47317C15.7255 2.5478 15.8252 2.65206 15.8944 2.77606C15.9636 2.90006 15.9999 3.03967 16 3.18167V8.81833C15.9999 8.96033 15.9636 9.09994 15.8944 9.22394C15.8252 9.34794 15.7255 9.4522 15.6047 9.52683C15.4839 9.60146 15.346 9.64399 15.2042 9.65038C15.0623 9.65677 14.9212 9.6268 14.7942 9.56333L11 7.66667V4.33333ZM1 2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H9.33333C9.77536 1 10.1993 1.17559 10.5118 1.48816C10.8244 1.80072 11 2.22464 11 2.66667V9.33333C11 9.77536 10.8244 10.1993 10.5118 10.5118C10.1993 10.8244 9.77536 11 9.33333 11H2.66667C2.22464 11 1.80072 10.8244 1.48816 10.5118C1.17559 10.1993 1 9.77536 1 9.33333V2.66667Z"
-                          stroke="#CAC8C8"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                    <span className="content-icon-wrapper">
+                      <CourseContentIcon type="video" />
                     </span>
-                    <p className="accordion-content-text">What is blockchain and how does it work?</p>
+                    <p className="accordion-content-text">
+                      What is blockchain and how does it work?
+                    </p>
                     <div className="accordion-content-badge">
                       <p>40xp</p>
-                      <svg viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        viewBox="0 0 12 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           d="M0.5 14C0.367392 14 0.240215 13.9473 0.146447 13.8536C0.0526785 13.7598 0 13.6326 0 13.5V1.12906C3.57728e-05 0.998057 0.0343858 0.869347 0.0996304 0.755744C0.164875 0.642142 0.258738 0.547611 0.371875 0.481562C0.75 0.261875 1.51188 0 3 0C4.16281 0 5.46344 0.459688 6.61094 0.865C7.535 1.19156 8.40781 1.5 9 1.5C9.76233 1.49769 10.5166 1.34366 11.2188 1.04688C11.3043 1.01078 11.3974 0.996406 11.4898 1.00503C11.5822 1.01366 11.671 1.04502 11.7484 1.09632C11.8257 1.14762 11.8892 1.21726 11.9331 1.29904C11.977 1.38082 12 1.47218 12 1.565V8.42C11.9999 8.5415 11.9643 8.66033 11.8977 8.76196C11.8311 8.86358 11.7364 8.94359 11.625 8.99219C11.3528 9.11125 10.3591 9.5 9 9.5C8.24563 9.5 7.30062 9.27688 6.30031 9.04031C5.17594 8.77469 4.01344 8.5 3 8.5C1.84781 8.5 1.25813 8.67437 1 8.78469V13.5C1 13.6326 0.947321 13.7598 0.853553 13.8536C0.759785 13.9473 0.632608 14 0.5 14Z"
                           fill="#2D6B10"
@@ -95,21 +95,19 @@ export const CourseInfo: React.FC = () => {
                   </li>
 
                   <li className="accordion-content">
-                    <span className="content-type-image-wrapper">
-                      <svg viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M11 4.33333L14.7942 2.43667C14.9212 2.3732 15.0623 2.34323 15.2042 2.34962C15.346 2.35601 15.4839 2.39854 15.6047 2.47317C15.7255 2.5478 15.8252 2.65206 15.8944 2.77606C15.9636 2.90006 15.9999 3.03967 16 3.18167V8.81833C15.9999 8.96033 15.9636 9.09994 15.8944 9.22394C15.8252 9.34794 15.7255 9.4522 15.6047 9.52683C15.4839 9.60146 15.346 9.64399 15.2042 9.65038C15.0623 9.65677 14.9212 9.6268 14.7942 9.56333L11 7.66667V4.33333ZM1 2.66667C1 2.22464 1.17559 1.80072 1.48816 1.48816C1.80072 1.17559 2.22464 1 2.66667 1H9.33333C9.77536 1 10.1993 1.17559 10.5118 1.48816C10.8244 1.80072 11 2.22464 11 2.66667V9.33333C11 9.77536 10.8244 10.1993 10.5118 10.5118C10.1993 10.8244 9.77536 11 9.33333 11H2.66667C2.22464 11 1.80072 10.8244 1.48816 10.5118C1.17559 10.1993 1 9.77536 1 9.33333V2.66667Z"
-                          stroke="#CAC8C8"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                    <span className="content-icon-wrapper">
+                      <CourseContentIcon type="text" />
                     </span>
-                    <p className="accordion-content-text">What is blockchain and how does it work?</p>
+                    <p className="accordion-content-text">
+                      Some resources to read on blockchain
+                    </p>
                     <div className="accordion-content-badge">
                       <p>40xp</p>
-                      <svg viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg
+                        viewBox="0 0 12 14"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path
                           d="M0.5 14C0.367392 14 0.240215 13.9473 0.146447 13.8536C0.0526785 13.7598 0 13.6326 0 13.5V1.12906C3.57728e-05 0.998057 0.0343858 0.869347 0.0996304 0.755744C0.164875 0.642142 0.258738 0.547611 0.371875 0.481562C0.75 0.261875 1.51188 0 3 0C4.16281 0 5.46344 0.459688 6.61094 0.865C7.535 1.19156 8.40781 1.5 9 1.5C9.76233 1.49769 10.5166 1.34366 11.2188 1.04688C11.3043 1.01078 11.3974 0.996406 11.4898 1.00503C11.5822 1.01366 11.671 1.04502 11.7484 1.09632C11.8257 1.14762 11.8892 1.21726 11.9331 1.29904C11.977 1.38082 12 1.47218 12 1.565V8.42C11.9999 8.5415 11.9643 8.66033 11.8977 8.76196C11.8311 8.86358 11.7364 8.94359 11.625 8.99219C11.3528 9.11125 10.3591 9.5 9 9.5C8.24563 9.5 7.30062 9.27688 6.30031 9.04031C5.17594 8.77469 4.01344 8.5 3 8.5C1.84781 8.5 1.25813 8.67437 1 8.78469V13.5C1 13.6326 0.947321 13.7598 0.853553 13.8536C0.759785 13.9473 0.632608 14 0.5 14Z"
                           fill="#2D6B10"
@@ -117,13 +115,12 @@ export const CourseInfo: React.FC = () => {
                       </svg>
                     </div>
                   </li>
-
                 </ul>
               </div>
             </div>
           </div>
         </div>
-        <div className="area-right"></div>
+        <CourseStatInfo/>
       </div>
     </CourseInfoStyled>
   );
