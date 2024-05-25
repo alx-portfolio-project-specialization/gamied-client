@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { Home } from "./pages/home.tsx";
 import { Root } from "./pages/root.tsx";
 import { Course } from "./pages/course.tsx";
+import { Profile } from "./pages/profile.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "courses/:course_id",
         element: <Course />,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <Profile />,
       },
       {
         index: true,

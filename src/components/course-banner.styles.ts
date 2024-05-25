@@ -68,6 +68,8 @@ export const CourseBannerStyled = styled.div`
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      height: 3rem;
+      position: relative;
       span {
         width: 3rem;
         height: 100%;
@@ -75,7 +77,7 @@ export const CourseBannerStyled = styled.div`
         align-items: center;
         justify-content: center;
         svg {
-          height: 100%;
+          /* height: 100%; */
           width: 100%;
           transform: scale(0.6);
         }
