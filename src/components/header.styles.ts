@@ -53,12 +53,15 @@ export const HeaderSearchBoxStyled = styled.form`
 `;
 
 export const HeaderStyled = styled.header`
-  height: max-content;
+  height: 12rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 10rem;
   width: 100%;
+  &.shrink {
+    width: 75%;
+    margin-left: auto;
+  }
   overflow: hidden;
   padding: var(--padding_M);
   background-color: var(--primary-color);

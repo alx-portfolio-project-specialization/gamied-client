@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { debug } from "../styles/globals";
+import { courseAccordionStyle, debug } from "../styles/globals";
 
 export const CourseInfoStyled = styled.section`
   font-family: poppins;
@@ -165,142 +165,12 @@ export const CourseInfoStyled = styled.section`
           padding-bottom: var(--padding_M);
           border-radius: 1.5rem;
           border: 1px solid var(--label-color);
+
           .course-outline-accordion {
-            height: max-content;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-top-left-radius: inherit;
-            border-top-right-radius: inherit;
-            --content-icon-color-here: red;
-            --uniform-padding-here: 0 var(--padding_M);
-            .accordion-head {
-              height: 8rem;
-              width: 100%;
-              &.first {
-                border-radius: inherit;
-              }
-              padding: var(--uniform-padding-here);
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              background-color: var(--active-text-bg);
-              border-bottom: 1px solid var(--label-color);
-              & > p {
-                font-size: 2rem;
-                color: var(--active-text-color);
-                font-weight: 500;
-              }
-              .head-right {
-                width: max-content;
-                min-width: 20rem;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                .duration-details {
-                  width: max-content;
-                  display: inherit;
-                  align-items: inherit;
-                  gap: 1rem;
-                  span {
-                    width: 0.5rem;
-                    height: 0.5rem;
-                    background-color: var(--text-color);
-                    border-radius: 50%;
-                    display: inline-flex;
-                  }
-                  p {
-                    display: inline-flex;
-                    font-size: 1.4rem;
-                    font-weight: 500;
-                    color: var(--text-color);
-                  }
-                }
-                .accordion-controller {
-                  width: max-content;
-                  height: 3rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  cursor: pointer;
-                  svg {
-                    height: 80%;
-                    transform: scale(0.6);
-                  }
-                }
-              }
-            }
-
-            .accordion-content-list {
-              padding: var(--uniform-padding-here);
-              width: 100%;
-              height: max-content;
-              display: flex;
-              flex-direction: column;
-              overflow: hidden;
-              .accordion-content {
-                height: 8rem;
-                width: 100%;
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                --content-icon-color-here: var(--text-color);
-                position: relative;
-                overflow: visible;
-                &::before {
-                  bottom: 0;
-                  height: 0.1rem;
-                  width: 100%;
-                  content: "";
-                  display: block;
-                  position: absolute;
-                  background-color: var(--label-color);
-                  transform: scaleX(2);
-                }
-                .content-icon-wrapper {
-                  height: 100%;
-                  width: 8rem;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  svg {
-                    height: 100%;
-                    transform: scale(0.4);
-                  }
-                }
-
-                .accordion-content-text {
-                  font-size: 2rem;
-                  font-weight: 500;
-                }
-                .accordion-content-badge {
-                  width: max-content;
-                  padding: 0 2rem;
-                  height: 3.5rem;
-                  justify-self: flex-end;
-                  margin-left: auto;
-                  margin-right: var(--margin_S);
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  border-radius: 4rem;
-                  gap: 0.5rem;
-                  background-color: var(--aside-tab-bg);
-                  p {
-                    font-weight: 500;
-                    text-transform: uppercase;
-                  }
-                  svg {
-                    height: 1.5rem;
-                  }
-                }
-              }
-            }
+            ${courseAccordionStyle};
           }
         }
       }
     }
-
   }
 `;

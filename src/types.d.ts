@@ -47,7 +47,16 @@ export interface StudentProfileType extends ProfileType {
   attemptedCourses: CourseAttemptType[] | null;
 }
 
-export interface CreatorProfileType extends ProfileType {
-
+export interface QuizOptionType {
+  correct: boolean;
+  text: string;
+  quizID: string;
+  id: string;
+}
+export interface QuizType {
+  id: string;
+  question: string;
+  options: QuizOptionType[];
 }
 
+export interface CreatorProfileType extends ProfileType {}

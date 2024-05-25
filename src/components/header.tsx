@@ -15,9 +15,11 @@ const HeaderSearchBox: React.FC = () => {
   );
 };
 
-export const Header: React.FC = () => {
+export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
+  variant,
+}) => {
   return (
-    <HeaderStyled>
+    <HeaderStyled className={`${variant === "no-side-tab" ? "shrink" : ""}`}>
       <div className="header-left">
         <HeaderSearchBox />
       </div>

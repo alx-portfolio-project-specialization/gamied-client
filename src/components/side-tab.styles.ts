@@ -21,24 +21,8 @@ export const SideTabStyled = styled.nav`
   overflow: hidden;
   gap: 1rem;
   background-color: var(--bright-color);
-  .logo-area {
-    height: 5rem;
-    width: 100%;
-    margin: var(--margin_M) 0;
-    span {
-      height: 5rem;
-      width: 5rem;
-      margin-right: auto;
-      margin-left: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      svg {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
+
+
 
   .side-tab-body {
     width: 100%;

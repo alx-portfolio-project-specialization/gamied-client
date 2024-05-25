@@ -6,11 +6,12 @@ import { Home } from "./pages/home.tsx";
 import { Root } from "./pages/root.tsx";
 import { Course } from "./pages/course.tsx";
 import { Profile } from "./pages/profile.tsx";
+import { CourseDetails } from "./pages/course-details.tsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <App variant={"side-tab"} />,
     children: [
       {
         path: "home",
@@ -28,6 +29,16 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+    ],
+  },
+  {
+    path: "courses/:course_id/details",
+    element: <App variant={"no-side-tab"} />,
+    children: [
+      {
+        index: true,
+        element: <CourseDetails/>
+      }
     ],
   },
   {
