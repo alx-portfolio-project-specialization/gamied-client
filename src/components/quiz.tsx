@@ -5,7 +5,8 @@ export const Quiz: React.FC<{
   value: QuizType;
   formData: FormData;
   setFormData: React.Dispatch<React.SetStateAction<FormData | null>>;
-}> = ({ value, formData, setFormData }) => {
+  key_: number;
+}> = ({ value, formData, setFormData, key_ }) => {
   const [selectedValue, setSelectedValue] = useState("");
 
   void selectedValue;
@@ -13,7 +14,7 @@ export const Quiz: React.FC<{
   return (
     <>
       <span>
-        {value.id}. {value.question}
+        {key_}. {value.question}
       </span>
 
       <div className="options-area">

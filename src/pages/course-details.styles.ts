@@ -75,6 +75,9 @@ export const CourseSideTabStyled = styled.aside`
       .accordion-content-list {
         .accordion-content {
           --content-icon-color-here: var(--label-color);
+          overflow: hidden;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
           .content-icon-wrapper svg {
             transform: scale(0.3);
           }
@@ -92,12 +95,15 @@ export const CourseSideTabStyled = styled.aside`
               background-color: transparent;
             }
           }
+
           &-text {
             color: var(--bg-color);
-            width: 60%;
+            width: 60% !important;
+            display: inline-block;
             overflow: hidden;
             text-wrap: nowrap;
             text-overflow: ellipsis;
+            max-height: 2.5rem !important;
             z-index: 2;
           }
           .accordion-content-badge {
@@ -170,6 +176,54 @@ export const CourseAccesssmentAreaStyled = styled.div`
         }
       }
       color: var(--label-color);
+    }
+  }
+
+  .accessment-countdown-area {
+    /* ${debug}; */
+    width: 90%;
+    margin-right: auto;
+    display: flex;
+    height: max-content;
+    align-items: center;
+    .countdown-area-left {
+      height: max-content;
+      flex: 1;
+      & > p {
+        font-size: 3rem;
+        font-family: poppins;
+        width: max-content;
+        font-weight: 500;
+        color: var(--text-color);
+      }
+    }
+    .countdown-area-right {
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      height: max-content;
+      align-items: center;
+      .countdown-elapsed-area {
+        width: max-content;
+        /* ${debug}; */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 5rem;
+        list-style-type: none;
+        gap: 2rem;
+        li {
+          font-size: 1.5rem;
+          span {
+            font-size: 1.8rem;
+            font-family: poppins;
+            color: var(--primary-color);
+            margin-right: 1rem;
+          }
+        }
+        /* align-self: flex-end; */
+      }
     }
   }
 
