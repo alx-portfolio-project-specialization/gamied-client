@@ -263,6 +263,63 @@ export const GenericProfileStyled = styled.div`
   }
 `;
 
-export const StudentProfileBottomStyled = styled.section``;
+export const StudentProfileBottomStyled = styled.section`
+  width: 100%;
+  margin-top: var(--margin_XL);
+  height: max-content;
+  width: 70rem;
+  margin-right: auto;
+  padding-bottom: var(--padding_XL);
+  .profile-bottom-title-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    font-family: poppins;
+    margin-bottom: 8rem;
+    p {
+      font-size: 2.2rem;
+    }
+    button {
+      min-width: 15rem;
+      width: max-content;
+      height: 4rem;
+      color: var(--badge-color);
+      background-color: rgba(231, 233, 124, 0.42);
+      border-radius: 0.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:focus {
+        border: 0.1rem dashed var(--badge-color);
+        outline: unset;
+      }
+      &:hover {
+        border: 0.1rem solid var(--badge-color);
+      }
+    }
+  }
+  .attempted-courses-area {
+    width: 100%;
+    height: max-content;
+    ul {
+      height: inherit;
+      width: inherit;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5rem;
+      li {
+        width: 100%;
+        .course-card {
+          width: 100%;
+          max-width: unset;
+        }
+      }
+    }
+  }
+`;
 
 export const CreatorProfileBottomStyled = styled.section``;
