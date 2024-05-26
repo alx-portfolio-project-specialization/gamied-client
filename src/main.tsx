@@ -7,6 +7,7 @@ import { Root } from "./pages/root.tsx";
 import { Course } from "./pages/course.tsx";
 import { Profile } from "./pages/profile.tsx";
 import { CourseDetails } from "./pages/course-details.tsx";
+import { UserCourses } from "./pages/user-courses.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "/dashboard/courses",
+        element: <UserCourses />,
+      },
+      {
         index: true,
         element: <Home />,
       },
@@ -37,8 +42,8 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <CourseDetails/>
-      }
+        element: <CourseDetails />,
+      },
     ],
   },
   {

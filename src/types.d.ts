@@ -60,3 +60,13 @@ export interface QuizType {
 }
 
 export interface CreatorProfileType extends ProfileType {}
+
+export interface CourseEntryType {
+  imageUrl: string;
+  title: string;
+  lessonCount: number;
+  progress: number;
+  id: number;
+}
+
+export type CourseListType = CourseEntryType[];
