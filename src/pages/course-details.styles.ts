@@ -205,8 +205,8 @@ export const CourseAccesssmentAreaStyled = styled.div`
       height: max-content;
       align-items: center;
       .countdown-elapsed-area {
-        width: max-content;
-        /* ${debug}; */
+        width: 40rem;
+
         display: flex;
         align-items: center;
         justify-content: flex-start;
@@ -215,6 +215,10 @@ export const CourseAccesssmentAreaStyled = styled.div`
         gap: 2rem;
         li {
           font-size: 1.5rem;
+          transition: width 0.2s linear;
+          &:first-of-type {
+            width: 20rem;
+          }
           span {
             font-size: 1.8rem;
             font-family: poppins;

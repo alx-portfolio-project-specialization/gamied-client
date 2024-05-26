@@ -13,6 +13,7 @@ const computeTimeWithMeridian = (dateString: string) => {
   return template;
 };
 
+
 export const AnnouncementTabList: React.FC<{ data: AnnouncementGroupType }> = ({
   data,
 }) => {
@@ -37,7 +38,10 @@ export const AnnouncementTabList: React.FC<{ data: AnnouncementGroupType }> = ({
         {data.announcements.map((entry, i) => {
           return (
             <li className="announcement-tab-item" key={i}>
-              <span className={`ati-badge ${entry.target}`}> {entry.target} </span>
+              <span className={`ati-badge ${entry.target}`}>
+                {" "}
+                {entry.target}{" "}
+              </span>
               <div className="ati-body">
                 <p>{entry.title}</p>
                 <div className="ati-expand-cta" tabIndex={0}>

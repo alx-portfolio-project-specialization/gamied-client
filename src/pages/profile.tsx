@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import {
   CreatorProfileBottomStyled,
   GenericProfileStyled,
+  RankListStyled,
   StudentProfileBottomStyled,
 } from "./profile.styles";
 import { RankCompleteIcon } from "../components/rank-complete-icon";
@@ -9,6 +10,7 @@ import { CreatorProfileType, StudentProfileType } from "../types";
 import { rankData } from "../data/user-rank";
 import { userProfile } from "../data/profile-data";
 import { WideCourseCard } from "../components/wide-course-card";
+import { extractDMYFromDateString } from "../utils/conversion";
 
 export const RankList: React.FC<{
   userProfile: StudentProfileType;
@@ -19,7 +21,7 @@ export const RankList: React.FC<{
   );
 
   return (
-    <ul className="ranks">
+    <RankListStyled className="ranks">
       {rankData.map((entry, index) => {
         const completed = userRanks.length - 1 >= index;
         return (
@@ -27,12 +29,17 @@ export const RankList: React.FC<{
             <span className="complete-indicator">
               <RankCompleteIcon completed={completed} />
             </span>
+
             <div className="rank-details">
-              <img src="" alt="" className="rank-icon" />
+              <img
+                src={rankData[index].icon}
+                alt="the png image depicting a rank in a gamified e-learning platform"
+                className="rank-icon"
+              />
               <p className="rank-title">{entry.title}</p>
               <h3 className="rank-date">{`${
                 userRanks.length && completed
-                  ? userRanks[index].dateAttained
+                  ? extractDMYFromDateString(userRanks[index].dateAttained)
                   : ""
               }`}</h3>
             </div>
@@ -44,34 +51,47 @@ export const RankList: React.FC<{
           </li>
         );
       })}
-    </ul>
+    </RankListStyled>
   );
 };
 
 export const GenericProfile: React.FC<{
   userProfile: StudentProfileType | CreatorProfileType;
 }> = ({ userProfile }) => {
+  console.log(
+    `${rankData[(userProfile as StudentProfileType).currentRank - 1].icon}`
+  );
   return (
     <GenericProfileStyled>
       <section className="profile-top">
         <div className="profile-info-area">
           <div className="profile-info-image-wrapper">
-            <img src="" alt="" />
+            <img
+              src="../../public/illustrations/avatar1.jpg"
+              alt="the avatar image of the user"
+            />
             <span className="profile-role-badge">{userProfile.user.role}</span>
           </div>
           <form className="profile-credentials-editable">
-            <input
-              type="text"
-              name=""
-              id="profile-name-editable"
-              defaultValue={userProfile.user.name}
-            />
-            <input
-              type="email"
-              name=""
-              id="profile-email-editable"
-              defaultValue={userProfile.user.email}
-            />
+            <div className="input-wrapper">
+              <label htmlFor="profile-name-editable">name</label>
+              <input
+                type="text"
+                name="profile_name_update"
+                id="profile-name-editable"
+                defaultValue={userProfile.user.name}
+              />
+            </div>
+
+            <div className="input-wrapper">
+              <label htmlFor="profile-email-editable">email</label>
+              <input
+                type="email"
+                name="profile_email_update"
+                id="profile-email-editable"
+                defaultValue={userProfile.user.email}
+              />
+            </div>
 
             {(() =>
               userProfile.user.role === "student" ? (
@@ -103,7 +123,7 @@ export const GenericProfile: React.FC<{
 
         {(() =>
           userProfile.user.role === "student" ? (
-            <div className="student-profile-ranks-area">
+            <div className="student-profile-ranks-area profile-aside-details">
               <h2>completed ranks</h2>
               <div className="ranks-wrapper">
                 <RankList userProfile={userProfile as StudentProfileType} />

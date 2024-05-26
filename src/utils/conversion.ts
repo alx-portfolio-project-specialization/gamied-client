@@ -15,3 +15,18 @@ export const convertSecondsToHms: (seconds: number) => {
     seconds: remainingSecondsAfterMinutes,
   };
 };
+
+
+export const extractDMYFromDateString: (dateString: string) => string = (
+  dateString
+) => {
+  const dateComputed = new Date(dateString);
+  const template = `${dateComputed
+    .getDate()
+    .toString()
+    .padStart(2, "0")}/${dateComputed
+    .getMonth()
+    .toString()
+    .padStart(2, "0")}/${dateComputed.getFullYear()}`;
+  return template;
+};

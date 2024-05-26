@@ -20,7 +20,7 @@ export const userProfile: StudentProfileType = {
     },
     {
       value: 3,
-      dateAttained: "2024-05-23T27:04:01.608Z",
+      dateAttained: "2024-02-23T20:04:01.608Z",
     },
   ],
   attemptedCourses: [
