@@ -64,7 +64,7 @@ export const CourseStatInfo: React.FC = () => {
             </div>
             <div className="creator-avatar-area">
               <img
-                src="../../public/illustrations/person-admin.png"
+                src="illustrations/person-admin.png"
                 alt="avatar image of a course creator on the gamied platform"
               />
             </div>

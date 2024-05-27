@@ -4,7 +4,7 @@ export const rankData: RankType[] = [
   {
     level: 1,
     title: "novice",
-    icon: `../../public/icons/badge-l1.png`,
+    icon: `icons/badge-l1.png`,
     xpRange: {
       max: 0,
       min: 900,
@@ -13,7 +13,7 @@ export const rankData: RankType[] = [
   {
     level: 2,
     title: "amateur",
-    icon: `../../public/icons/badge-l2.png`,
+    icon: `icons/badge-l2.png`,
     xpRange: {
       max: 0,
       min: 900,
@@ -22,7 +22,7 @@ export const rankData: RankType[] = [
   {
     level: 3,
     title: "senior",
-    icon: `../../public/icons/badge-l3.png`,
+    icon: `icons/badge-l3.png`,
     xpRange: {
       max: 0,
       min: 900,
@@ -31,7 +31,7 @@ export const rankData: RankType[] = [
   {
     level: 4,
     title: "professional",
-    icon: `../../public/icons/badge-l4.png`,
+    icon: `icons/badge-l4.png`,
     xpRange: {
       max: 0,
       min: 900,
@@ -40,7 +40,7 @@ export const rankData: RankType[] = [
   {
     level: 5,
     title: "master",
-    icon: `../../public/icons/badge-l5.png`,
+    icon: `icons/badge-l5.png`,
     xpRange: {
       max: 0,
       min: 900,
@@ -49,7 +49,7 @@ export const rankData: RankType[] = [
   {
     level: 6,
     title: "legendary",
-    icon: `../../public/icons/badge-l6.png`,
+    icon: `icons/badge-l6.png`,
     xpRange: {
       max: 0,
       min: 900,

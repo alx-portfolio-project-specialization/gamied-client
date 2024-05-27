@@ -17,7 +17,7 @@ const WelcomeBoard: React.FC = () => {
       </div>
       <div className="wp-right">
         <img
-          src="../../public/illustrations/community-learning.png"
+          src="illustrations/community-learning.png"
           alt="community learning illustration"
         />
       </div>
@@ -49,7 +49,7 @@ const RecommendedCourseSection: React.FC = () => {
         <ul className="list-course-cards">
           <li className="list-course-card">
             <div className="list-course-card-top">
-              <img src="../../public/images/programming-1.jpg" alt="" />
+              <img src="images/programming-1.jpg" alt="" />
             </div>
             <div className="list-course-card-bottom">
               <p>Introduction to programming</p>
@@ -63,7 +63,7 @@ const RecommendedCourseSection: React.FC = () => {
           <li className="list-course-card">
             <div className="list-course-card-top">
               <img
-                src="../../public/images/sticky-notes-introduction.jpg"
+                src="images/sticky-notes-introduction.jpg"
                 alt=""
               />
             </div>
@@ -78,7 +78,7 @@ const RecommendedCourseSection: React.FC = () => {
 
           <li className="list-course-card">
             <div className="list-course-card-top">
-              <img src="../../public/images/building-soft-skills.jpg" alt="" />
+              <img src="images/building-soft-skills.jpg" alt="" />
             </div>
             <div className="list-course-card-bottom">
               <p className="course-card-title">Introduction to programming</p>

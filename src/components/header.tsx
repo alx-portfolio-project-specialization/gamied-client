@@ -32,7 +32,7 @@ export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
         <div className="profile-summary-area">
           <span className="summary-area-text">john doe</span>
           <img
-            src="../../public/illustrations/avatar1.jpg"
+            src="illustrations/avatar1.jpg"
             alt="avatar image of the user of the gamied platform"
             className="summary-area-image"
           />
