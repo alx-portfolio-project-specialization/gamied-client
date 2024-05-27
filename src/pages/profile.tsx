@@ -67,7 +67,7 @@ export const GenericProfile: React.FC<{
         <div className="profile-info-area">
           <div className="profile-info-image-wrapper">
             <img
-              src="illustrations/avatar1.jpg"
+              src="/illustrations/avatar1.jpg"
               alt="the avatar image of the user"
             />
             <span className="profile-role-badge">{userProfile.user.role}</span>

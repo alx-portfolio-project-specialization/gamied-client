@@ -4,7 +4,7 @@ export const CourseBanner: React.FC = () => {
   return (
     <CourseBannerStyled>
       <img
-        src="images/blockchain.jpg"
+        src="/images/blockchain.jpg"
         alt="the course banner image"
         className="banner-image"
       />

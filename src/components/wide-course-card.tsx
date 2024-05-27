@@ -5,7 +5,7 @@ export const WideCourseCard: React.FC = () => {
     <WideCourseCardStyled className="course-card">
       <div className="card-left">
         <img
-          src="images/programming-1.jpg"
+          src="/images/programming-1.jpg"
           alt="a thumbnail image of a course on an edtech platform"
         />
       </div>

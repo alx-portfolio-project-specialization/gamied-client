@@ -2,7 +2,7 @@ import type { StudentProfileType } from "../types";
 
 export const userProfile: StudentProfileType = {
   user: {
-    avatarURL: "illustrations/avatar1.jpg",
+    avatarURL: "/illustrations/avatar1.jpg",
     email: "john@doe.domain.com",
     name: "John Doe",
     isLoggedIn: false,
