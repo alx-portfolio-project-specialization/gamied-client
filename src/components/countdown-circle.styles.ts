@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const CountdownCircleStyled = styled.div`
   width: 8rem;
   height: 8rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   --countdown-circle-stroke-here: var(--badge-color);
+  --text-font-size-here: 2.5rem;
+
   --cx-here: 25;
   --cy-here: 25;
   --transition: stroke-dashoffset 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
@@ -58,13 +61,45 @@ export const CountdownCircleStyled = styled.div`
       position: absolute;
       content: "";
       color: var(--primary-color);
-      font-size: 2.5rem;
+      font-size: var(--text-font-size-here);
       font-weight: 600;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
     }
   }
+
+  &.course-entry-progress {
+    // --stroke-dasharray: 800;
+    --animation-time: 0ms;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 2rem;
+    /* --countdown-circle-stroke-here: var(--progress-color): */
+    --text-font-size-here: 1rem;
+    circle {
+      stroke-width: 1rem;
+      /* stroke: var(--progress-color); */
+      /* stroke: blue; */
+    }
+    .progress {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      stroke: var(--progress-color) !important;
+      /* stroke: blue; */
+      /* animation: unset !important; */
+      z-index: 2;
+      display: flex;
+    }
+    .data-progress {
+      font-size: 1.5rem !important;
+    }
+    .skill {
+      min-width: 5rem;
+      height: 5rem;
+    }
+  }
+
   @keyframes progress {
     to {
       stroke-dashoffset: var(--stroke-dashoffset);

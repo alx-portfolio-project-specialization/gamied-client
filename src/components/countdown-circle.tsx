@@ -46,8 +46,6 @@ export const CountdownCircle: React.FC<{
   const textRef = useRef<HTMLSpanElement>(null);
   const [mountCount, setMountCount] = useState(0);
 
-  void setMountCount;
-
   useEffect(() => {
     if (progressRef && textRef && mountCount === 0) {
       countProgressToTime(
