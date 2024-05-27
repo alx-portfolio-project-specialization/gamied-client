@@ -51,6 +51,21 @@ export const CourseSideTabStyled = styled.aside`
     flex: 1;
     overflow-y: auto;
     overflow-x: hidden;
+    & > p {
+      font-family: poppins;
+      width: 90%;
+      margin: 0 auto;
+      height: 5rem;
+      font-size: 2rem;
+      color: var(--bg-color);
+      /* text-align: center; */
+      text-wrap: nowrap;
+      text-align: start;
+      justify-content: center;
+      text-transform: capitalize;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .course-outline-accordion {
       ${courseAccordionStyle};

@@ -12,7 +12,16 @@ export const CourseAccordion: React.FC<{ variant: "outline" | "details" }> = ({
       <div className="accordion-head first">
         <p>Getting Started</p>
         <div className="head-right">
-          <span className="accordion-controller">
+          {
+            variant !== "details" ?
+            <div className="duration-details">
+              <p>41 lessons</p>
+              <span></span>
+              <p>4hr 40min 52s</p>
+            </div>
+            : null
+          }
+          <span className={variant === "details" ? "accordion-controller shrinked" : "accordion-controller"}>
             <svg
               viewBox="0 0 16 9"
               fill="none"

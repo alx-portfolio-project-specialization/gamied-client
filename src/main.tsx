@@ -9,6 +9,8 @@ import { Profile } from "./pages/profile.tsx";
 import { CourseDetails } from "./pages/course-details.tsx";
 import { UserCourses } from "./pages/user-courses.tsx";
 import { courseData } from "./data/course-list.ts";
+import { Auth } from "./pages/auth.tsx";
+import { NotFound } from "./pages/not-found.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -48,8 +50,18 @@ export const router = createBrowserRouter([
     ],
   },
   {
+    path: "/auth",
+    element: <Auth />,
+    // children: [
+    //   {
+    //     index: true,
+    //     element: <CourseDetails />,
+    //   },
+    // ],
+  },
+  {
     path: "*",
-    element: <h2>ERROR: PAGE NOT FOUND</h2>,
+    element: <NotFound/>,
   },
 ]);
 

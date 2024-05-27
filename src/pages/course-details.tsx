@@ -16,6 +16,7 @@ export const CourseSideTab: React.FC = () => {
       <Logo />
 
       <div className="course-side-tab-body">
+        <p>internals of blockchain</p>
         <CourseAccordion variant="details" />
       </div>
     </CourseSideTabStyled>
@@ -30,7 +31,7 @@ export const CourseDetails: React.FC = () => {
     countdownRef,
     setCountdownTime,
     calcCountdownTime,
-    calcDuration
+    calcDuration,
   } = useCountdownLogic();
 
   return (

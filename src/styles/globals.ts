@@ -37,11 +37,13 @@ export const courseAccordionStyle = css`
       display: flex;
       align-items: center;
       gap: 1rem;
+
       .duration-details {
         width: max-content;
         display: inherit;
         align-items: inherit;
         gap: 1rem;
+        margin-right: 2rem;
         span {
           width: 0.5rem;
           height: 0.5rem;

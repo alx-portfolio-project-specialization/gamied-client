@@ -2,7 +2,7 @@ import { LogoStyled } from "./logo.styles"
 
 export const Logo: React.FC = () => {
   return (
-  <LogoStyled>
+  <LogoStyled className="logo-container">
     <span className="logo-div">
       <svg
         viewBox="0 0 46 46"
