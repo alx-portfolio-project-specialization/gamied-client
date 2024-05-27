@@ -146,6 +146,9 @@ html {
   font-size: 8px;
   scroll-behavior: smooth;
   font-family: poppins;
+  @media screen and (min-width: 500px) {
+    font-size: .5vw;
+  }
   @media screen and (max-width: 800px) {
     font-size: 7px;
   }
@@ -153,7 +156,7 @@ html {
     font-size: 10px;
   }
   @media screen and (min-width: 2500px) {
-    font-size: 15px;
+    font-size: .5vw;
   }
 }
 *,

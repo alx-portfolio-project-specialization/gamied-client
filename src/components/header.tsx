@@ -28,6 +28,7 @@ export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
           <svg>
             <use xlinkHref="#bell"></use>
           </svg>
+          <span className="notif-icon-shadow"></span>
         </span>
         <div className="profile-summary-area">
           <span className="summary-area-text">john doe</span>

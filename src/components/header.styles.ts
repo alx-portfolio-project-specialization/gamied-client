@@ -87,11 +87,39 @@ export const HeaderStyled = styled.header`
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      overflow: visible;
+      .notif-icon-shadow {
+        width: 100%;
+        height: 100%;
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: var(--label-color);
+        opacity: 0;
+        top: 0;
+        left: 0;
+        -webkit-mask: url("/public/icons/notification-bell.svg") center/contain
+          no-repeat;
+        mask: url("/public/icons/notification-bell.svg") center/contain
+          no-repeat;
+        mask-size: cover;
+        transform-origin: top;
+        transition: transform 0.3s ease-out;
+        z-index: 0;
+      }
       svg {
         width: 100%;
         height: 100%;
         transform: scale(0.8);
         cursor: pointer;
+        z-index: 1;
+        &:hover {
+          & + .notif-icon-shadow {
+            transform: rotateZ(-15deg);
+            opacity: 0.4;
+          }
+        }
       }
     }
     .profile-summary-area {
