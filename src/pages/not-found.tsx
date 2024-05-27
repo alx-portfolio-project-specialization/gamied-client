@@ -1,5 +1,6 @@
 import { Logo } from "../components/logo";
 import { NotFoundStyled } from "./not-found.styles";
+import { Link } from "react-router-dom";
 
 export const NotFound: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ export const NotFound: React.FC = () => {
         <span></span>
         <div className="_404-text-area">
           <p>was this a mistake?</p>
-          <a href="">return home</a>
+          <Link to={".."}>return home</Link>
         </div>
       </div>
     </NotFoundStyled>
