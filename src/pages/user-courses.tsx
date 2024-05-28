@@ -64,10 +64,14 @@ export const UserCourses: React.FC<{
   isGeneric: boolean;
 }> = ({ courses, isGeneric }) => {
   void isGeneric;
+
   return (
     <UserCoursesStyled>
       <div className="courses-top">
-        <h2>my courses</h2>
+        <h2>{isGeneric ? "All Courses" : "My Courses"}</h2>
+        {isGeneric ? <div className="course-filter-area">
+          
+        </div> : null}
       </div>
       <div className="courses-bottom">
         <ul className="courses-list-container">
