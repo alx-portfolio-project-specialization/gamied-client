@@ -3,6 +3,7 @@ import { CountdownCircleStyled } from "../components/countdown-circle.styles";
 import { Pagination } from "../components/pagination";
 import type { CourseEntryType, CourseListType } from "../types";
 import { UserCoursesStyled } from "./user-courses.styles";
+import { SmallCourseCard } from "../components/small-course-card";
 
 void Pagination;
 
@@ -35,11 +36,11 @@ export const StaticProgress: React.FC<{ entry: CourseEntryType }> = ({
     <CountdownCircleStyled className="course-entry-progress">
       <div className="skill">
         <svg>
-          <circle cx="17" cy="17" r="50%"></circle>
+          <circle cx="15" cy="15" r="50%"></circle>
           <circle
             className="progress"
-            cx="17"
-            cy="17"
+            cx="15"
+            cy="15"
             r="50%"
             data-value={entry.progress}
             data-stroke="var(--countdown-circle-stroke-here)"
@@ -58,9 +59,11 @@ export const StaticProgress: React.FC<{ entry: CourseEntryType }> = ({
   );
 };
 
-export const UserCourses: React.FC<{ courses: CourseListType }> = ({
-  courses,
-}) => {
+export const UserCourses: React.FC<{
+  courses: CourseListType;
+  isGeneric: boolean;
+}> = ({ courses, isGeneric }) => {
+  void isGeneric;
   return (
     <UserCoursesStyled>
       <div className="courses-top">
@@ -70,25 +73,7 @@ export const UserCourses: React.FC<{ courses: CourseListType }> = ({
         <ul className="courses-list-container">
           {courses.map((entry) => {
             return (
-              <li className="course-card-wrapper">
-                <div className="course-card-small">
-                  <div className="top">
-                    <img
-                      src={entry.imageUrl}
-                      alt="image representing a course card in a list of courses"
-                    />
-                  </div>
-                  <div className="bottom">
-                    <p className="card-bottom-text">{entry.title}</p>
-                    <div className="course-circle-progress-wrapper">
-                      <StaticProgress entry={entry} />
-                    </div>
-                    <div className="course-info-cta-area">
-                      <p>{entry.lessonCount} lessons</p>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              <SmallCourseCard entry={entry} withCTA={false} key={entry.id} />
             );
           })}
         </ul>

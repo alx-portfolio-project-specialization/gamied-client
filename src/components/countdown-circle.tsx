@@ -62,13 +62,11 @@ export const CountdownCircle: React.FC<{
     <CountdownCircleStyled>
       <div className="skill">
         <svg>
-          <circle cx="25" cy="25" r="50%"></circle>
+          <circle cx="20" cy="20" r="50%"></circle>
           <circle
             className="progress"
-            // cx="var(--cx-here)"
-            // cy="var(--cy-here)"
-            cx="25"
-            cy="25"
+            cx="20"
+            cy="20"
             r="50%"
             data-value="100"
             data-stroke="var(--countdown-circle-stroke-here)"

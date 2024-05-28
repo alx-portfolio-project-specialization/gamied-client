@@ -8,9 +8,9 @@ import {
 import { RankCompleteIcon } from "../components/rank-complete-icon";
 import { CreatorProfileType, StudentProfileType } from "../types";
 import { rankData } from "../data/user-rank";
-import { userProfile } from "../data/profile-data";
 import { WideCourseCard } from "../components/wide-course-card";
 import { extractDMYFromDateString } from "../utils/conversion";
+import { Outlet } from "react-router-dom";
 
 export const RankList: React.FC<{
   userProfile: StudentProfileType;
@@ -171,5 +171,5 @@ export const CreatorProfileBottom: React.FC = () => {
 
 // [PROTECTED]
 export const Profile: React.FC = () => {
-  return <GenericProfile userProfile={userProfile} />;
+  return <Outlet/>
 };

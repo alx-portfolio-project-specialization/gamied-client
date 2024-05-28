@@ -1,7 +1,11 @@
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Logo } from "./logo";
 import { SideTabStyled } from "./side-tab.styles";
 
 export const SideTab: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
     <SideTabStyled>
       <Logo />
@@ -15,27 +19,43 @@ export const SideTab: React.FC = () => {
                   <use xlinkHref="#dashboard"></use>
                 </svg>
               </span>
-              <a href="" className="active">
+              <NavLink
+                to="/dashboard"
+                className={
+                  location.pathname.startsWith("/dashboard") ? "active" : ""
+                }
+              >
                 Dashboard
-              </a>
+              </NavLink>
             </div>
 
             <div className="sub-nav-list">
               <span className="sub-nav-item">
                 <span></span>
-                <a href="" className="active">
+                <Link
+                  to="/dashboard/courses"
+                  className={
+                    location.pathname === "/dashboard/courses" ? "active" : ""
+                  }
+                >
                   my courses
-                </a>
+                </Link>
               </span>
               <span className="sub-nav-item">
-                <span></span> <a href="">my activities</a>
+                <span></span> <Link to="">my activities</Link>
               </span>
               <span className="sub-nav-item">
-                <span></span> <a href="">profile</a>
+                <span></span>{" "}
+                <Link
+                  to="/dashboard"
+                  className={location.pathname === "/dashboard" ? "active" : ""}
+                >
+                  profile
+                </Link>
               </span>
-              <span className="sub-nav-item">
+              {/* <span className="sub-nav-item">
                 <span></span> <a href="">some other item</a>
-              </span>
+              </span> */}
             </div>
           </li>
 
@@ -46,7 +66,7 @@ export const SideTab: React.FC = () => {
                   <use xlinkHref="#course"></use>
                 </svg>
               </span>
-              <a href="">All Courses</a>
+              <Link to="/courses">All Courses</Link>
             </div>
           </li>
 
@@ -57,14 +77,23 @@ export const SideTab: React.FC = () => {
                   <use xlinkHref="#analytics"></use>
                 </svg>
               </span>
-              <a href="">Assessments</a>
+              <Link
+                to=""
+                className={location.pathname === "/assessments" ? "active" : ""}
+              >
+                Assessments
+              </Link>
             </div>
           </li>
         </ul>
 
         <div className="side-tab-cta-div">
-          <button>
-            LOGIN / SIGNUP{" "}
+          <button
+            onMouseDown={() => {
+              navigate("/auth");
+            }}
+          >
+            LOGIN / SIGNUP
             <span>
               <svg>
                 <use xlinkHref="#login"></use>

@@ -5,12 +5,13 @@ import { createBrowserRouter } from "react-router-dom";
 import { Home } from "./pages/home.tsx";
 import { Root } from "./pages/root.tsx";
 import { Course } from "./pages/course.tsx";
-import { Profile } from "./pages/profile.tsx";
+import { GenericProfile, Profile } from "./pages/profile.tsx";
 import { CourseDetails } from "./pages/course-details.tsx";
 import { UserCourses } from "./pages/user-courses.tsx";
 import { courseData } from "./data/course-list.ts";
 import { Auth } from "./pages/auth.tsx";
 import { NotFound } from "./pages/not-found.tsx";
+import { userProfile as studentUserProfile } from "./data/profile-data.ts";
 
 export const router = createBrowserRouter([
   {
@@ -26,12 +27,18 @@ export const router = createBrowserRouter([
         element: <Course />,
       },
       {
-        path: "/dashboard/profile",
+        path: "/dashboard",
         element: <Profile />,
-      },
-      {
-        path: "/dashboard/courses",
-        element: <UserCourses courses={courseData} />,
+        children: [
+          {
+            index: true,
+            element: <GenericProfile userProfile={studentUserProfile} />,
+          },
+          {
+            path: "courses",
+            element: <UserCourses courses={courseData} isGeneric={true} />,
+          },
+        ],
       },
       {
         index: true,
@@ -61,7 +68,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <NotFound/>,
+    element: <NotFound />,
   },
 ]);
 
