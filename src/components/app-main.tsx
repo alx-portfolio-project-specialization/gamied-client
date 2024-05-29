@@ -1,4 +1,5 @@
-import type { CSSProperties } from "react";
+import { courseData } from "../data/course-list";
+import { CourseListType } from "../types";
 import { AnnouncementTab } from "./announcement-tab";
 import {
   AppMainStyled,
@@ -6,6 +7,7 @@ import {
   RecommendedCourseSectionStyled,
   WelcomeBoardStyled,
 } from "./app-main.styles";
+import { SmallCourseCard } from "./small-course-card";
 import { WideCourseCard } from "./wide-course-card";
 
 const WelcomeBoard: React.FC = () => {
@@ -39,7 +41,9 @@ const CurrentCourseSection: React.FC = () => {
   );
 };
 
-const RecommendedCourseSection: React.FC = () => {
+const RecommendedCourseSection: React.FC<{ courses: CourseListType }> = ({
+  courses,
+}) => {
   return (
     <RecommendedCourseSectionStyled>
       <div className="rcs-top">
@@ -47,7 +51,12 @@ const RecommendedCourseSection: React.FC = () => {
       </div>
       <div className="rcs-bottom">
         <ul className="list-course-cards">
-          <li className="list-course-card">
+          {courses.slice(0, 4).map((entry) => {
+            return (
+              <SmallCourseCard entry={entry} withCTA={true} variant="home" key={entry.id}/>
+            );
+          })}
+          {/* <li className="list-course-card">
             <div className="list-course-card-top">
               <img src="/images/programming-1.jpg" alt="" />
             </div>
@@ -58,9 +67,9 @@ const RecommendedCourseSection: React.FC = () => {
                 <button className="list-course-cta">Enroll now</button>
               </div>
             </div>
-          </li>
+          </li> */}
 
-          <li className="list-course-card">
+          {/* <li className="list-course-card">
             <div className="list-course-card-top">
               <img
                 src="/images/sticky-notes-introduction.jpg"
@@ -74,9 +83,9 @@ const RecommendedCourseSection: React.FC = () => {
                 <button className="list-course-cta">Enroll now</button>
               </div>
             </div>
-          </li>
+          </li> */}
 
-          <li className="list-course-card">
+          {/* <li className="list-course-card">
             <div className="list-course-card-top">
               <img src="/images/building-soft-skills.jpg" alt="" />
             </div>
@@ -87,7 +96,7 @@ const RecommendedCourseSection: React.FC = () => {
                 <button className="list-course-cta">Enroll now</button>
               </div>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     </RecommendedCourseSectionStyled>
@@ -100,7 +109,7 @@ export const AppMain: React.FC = () => {
       <div className="app-main-content">
         <WelcomeBoard />
         <CurrentCourseSection />
-        <RecommendedCourseSection />
+        <RecommendedCourseSection courses={courseData} />
       </div>
 
       <AnnouncementTab />

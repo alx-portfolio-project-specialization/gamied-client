@@ -79,4 +79,12 @@ export const SmallCourseCardStyled = styled.li`
       }
     }
   }
+
+  &.home {
+    min-width: 35rem;
+    .course-card-small {
+      width: 100%;
+      height: 100%;
+    }
+  }
 `;

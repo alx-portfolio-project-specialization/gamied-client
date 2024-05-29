@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { debug } from "../styles/globals";
 
 export const AssessmentStyled = styled.div`
   width: 100%;

@@ -5,9 +5,10 @@ import { SmallCourseCardStyled } from "./small-course-card.styles";
 export const SmallCourseCard: React.FC<{
   entry: CourseEntryType;
   withCTA: boolean;
-}> = ({ entry, withCTA }) => {
+  variant: "home" | "others";
+}> = ({ entry, withCTA, variant }) => {
   return (
-    <SmallCourseCardStyled className="course-card-wrapper">
+    <SmallCourseCardStyled className={`course-card-wrapper ${variant}`}>
       <div className="course-card-small">
         <div className="top">
           <img

@@ -79,6 +79,7 @@ export const UserCourses: React.FC<{
               <SmallCourseCard
                 entry={entry}
                 withCTA={isGeneric}
+                variant="others"
                 key={entry.id}
               />
             );
