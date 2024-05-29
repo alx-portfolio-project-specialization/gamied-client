@@ -14,9 +14,12 @@ export const UserCoursesStyled = styled.section`
   font-family: poppins;
   .courses-top {
     width: 100%;
-    height: 10rem;
+    height: max-content;
     display: flex;
     justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 5rem;
     & > h2 {
       font-size: 2.2rem;
       text-transform: capitalize;
@@ -44,7 +47,6 @@ export const UserCoursesStyled = styled.section`
       grid-auto-rows: 40rem;
       justify-content: center;
       margin-right: auto;
-
     }
   }
 `;

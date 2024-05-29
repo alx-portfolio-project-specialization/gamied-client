@@ -4,6 +4,7 @@ import { Pagination } from "../components/pagination";
 import type { CourseEntryType, CourseListType } from "../types";
 import { UserCoursesStyled } from "./user-courses.styles";
 import { SmallCourseCard } from "../components/small-course-card";
+import { CourseFilter } from "../components/course-filter";
 
 void Pagination;
 
@@ -69,9 +70,9 @@ export const UserCourses: React.FC<{
     <UserCoursesStyled>
       <div className="courses-top">
         <h2>{isGeneric ? "All Courses" : "My Courses"}</h2>
-        {isGeneric ? <div className="course-filter-area">
-          
-        </div> : null}
+        {isGeneric ?
+        <CourseFilter/>
+        : null}
       </div>
       <div className="courses-bottom">
         <ul className="courses-list-container">

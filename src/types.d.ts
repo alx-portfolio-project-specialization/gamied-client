@@ -70,3 +70,15 @@ export interface CourseEntryType {
 }
 
 export type CourseListType = CourseEntryType[];
+
+export interface CourseFilterOptionType {
+  text: string;
+  id: number;
+}
+
+export interface CourseFilterType {
+  selected: number;
+  filterName: string;
+  filterTitle: string;
+  options: CourseFilterOptionType[];
+}
