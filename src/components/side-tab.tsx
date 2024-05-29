@@ -42,10 +42,12 @@ export const SideTab: React.FC = () => {
                 </Link>
               </span>
               <span className="sub-nav-item">
-                <span></span> <Link to="">my activities</Link>
+                <span></span> <Link to="dashboard/assessments" className={
+                  location.pathname === "/dashboard/assessments" ? "active" : ""
+                }>assessments</Link>
               </span>
               <span className="sub-nav-item">
-                <span></span>{" "}
+                <span></span>
                 <Link
                   to="/dashboard"
                   className={location.pathname === "/dashboard" ? "active" : ""}
@@ -66,7 +68,12 @@ export const SideTab: React.FC = () => {
                   <use xlinkHref="#course"></use>
                 </svg>
               </span>
-              <Link to="/courses">All Courses</Link>
+              <Link
+                to="/courses"
+                className={location.pathname === "/courses" ? "active" : ""}
+              >
+                All Courses
+              </Link>
             </div>
           </li>
 
@@ -78,10 +85,10 @@ export const SideTab: React.FC = () => {
                 </svg>
               </span>
               <Link
-                to=""
-                className={location.pathname === "/assessments" ? "active" : ""}
+                to="/activities"
+                className={location.pathname === "/activities" ? "active" : ""}
               >
-                Assessments
+                Activities
               </Link>
             </div>
           </li>

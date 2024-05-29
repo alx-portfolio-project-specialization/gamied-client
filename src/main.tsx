@@ -12,6 +12,8 @@ import { courseData } from "./data/course-list.ts";
 import { Auth } from "./pages/auth.tsx";
 import { NotFound } from "./pages/not-found.tsx";
 import { userProfile as studentUserProfile } from "./data/profile-data.ts";
+import { Courses } from "./pages/courses.tsx";
+import { Assessments } from "./pages/assessments.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -23,8 +25,18 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "courses/:course_id",
-        element: <Course />,
+        path: "courses",
+        element: <Courses/>,
+        children: [
+          {
+            path: ":course_id",
+            element: <Course/>,
+          },
+          {
+            index: true,
+            element: <UserCourses courses={courseData} isGeneric={true} />,
+          },
+        ]
       },
       {
         path: "/dashboard",
@@ -36,7 +48,11 @@ export const router = createBrowserRouter([
           },
           {
             path: "courses",
-            element: <UserCourses courses={courseData} isGeneric={true} />,
+            element: <UserCourses courses={courseData} isGeneric={false} />,
+          },
+          {
+            path: "assessments",
+            element: <Assessments/>,
           },
         ],
       },
@@ -47,7 +63,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "courses/:course_id/details",
+    path: "/courses/:course_id/details",
     element: <App variant={"no-side-tab"} />,
     children: [
       {

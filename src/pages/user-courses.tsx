@@ -70,15 +70,17 @@ export const UserCourses: React.FC<{
     <UserCoursesStyled>
       <div className="courses-top">
         <h2>{isGeneric ? "All Courses" : "My Courses"}</h2>
-        {isGeneric ?
-        <CourseFilter/>
-        : null}
+        {isGeneric ? <CourseFilter /> : null}
       </div>
       <div className="courses-bottom">
         <ul className="courses-list-container">
           {courses.map((entry) => {
             return (
-              <SmallCourseCard entry={entry} withCTA={false} key={entry.id} />
+              <SmallCourseCard
+                entry={entry}
+                withCTA={isGeneric}
+                key={entry.id}
+              />
             );
           })}
         </ul>
