@@ -14,6 +14,7 @@ import { NotFound } from "./pages/not-found.tsx";
 import { userProfile as studentUserProfile } from "./data/profile-data.ts";
 import { Courses } from "./pages/courses.tsx";
 import { Assessments } from "./pages/assessments.tsx";
+import { assessmentData } from "./data/assessments.ts";
 
 export const router = createBrowserRouter([
   {
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "assessments",
-            element: <Assessments/>,
+            element: <Assessments data={assessmentData}/>,
           },
         ],
       },

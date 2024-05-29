@@ -82,3 +82,28 @@ export interface CourseFilterType {
   filterTitle: string;
   options: CourseFilterOptionType[];
 }
+
+type PossibleAccessmentState<T> = T extends "generic"
+  ? "passed" | "failed"
+  : "passed" | "failed" | "no-attempt";
+
+export interface CourseAssessmentType {
+  status: PossibleAccessmentState<"generic">;
+  courseID: string;
+  dateAttempted: string;
+  percentScore?: number;
+}
+export interface ExamAssessmentType
+  extends Omit<CourseAssessmentType, "courseID"> {
+  status: PossibleAccessmentState<"exam">;
+  examID: number;
+}
+
+export interface AssessmentDataType {
+  average: {
+    exams: number;
+    courses: number;
+  };
+  exams: ExamAssessmentType[];
+  courses: CourseAssessmentType[];
+}
