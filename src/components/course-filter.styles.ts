@@ -48,7 +48,7 @@ export const CourseFilterStyled = styled.div`
           transform-origin: left;
           cursor: default;
           &.flipped {
-            transform: scale(0.6, -1);
+            transform: scale(0.4, -0.4);
           }
         }
       }
