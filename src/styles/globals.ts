@@ -65,6 +65,7 @@ export const courseAccordionStyle = css`
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        display: none;
         svg {
           height: 80%;
           transform: scale(0.6);
@@ -89,6 +90,7 @@ export const courseAccordionStyle = css`
       --content-icon-color-here: var(--text-color);
       position: relative;
       overflow: visible;
+
       &::before {
         bottom: 0;
         height: 0.1rem;
@@ -114,6 +116,7 @@ export const courseAccordionStyle = css`
       .accordion-content-text {
         font-size: 2rem;
         font-weight: 500;
+        color: var(--content-icon-color-here);
       }
       .accordion-content-badge {
         width: max-content;

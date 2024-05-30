@@ -56,6 +56,7 @@ export interface QuizOptionType {
 export interface QuizType {
   id: string;
   question: string;
+  points: number;
   options: QuizOptionType[];
 }
 
@@ -67,6 +68,8 @@ export interface CourseEntryType {
   lessonCount: number;
   progress: number;
   id: number;
+  description: string;
+  duration: number; // in seconds
 }
 
 export type CourseListType = CourseEntryType[];
@@ -106,4 +109,32 @@ export interface AssessmentDataType {
   };
   exams: ExamAssessmentType[];
   courses: CourseAssessmentType[];
+}
+
+export interface CourseContentType {
+  id: number;
+  title: string;
+  href: string;
+  type?: "video" | "text";
+}
+
+export interface LessonAssessmentType {
+  id: number;
+  completed: boolean;
+  questions: QuizType[];
+  lostPoints: number;
+  availablePoints: number;
+}
+export interface CourseLessonType {
+  id: number;
+  title: string;
+  completed: boolean;
+  contents: CourseContentType[];
+  assessment: LessonAssessmentType;
+  courseTitle: string;
+  duration: number;
+}
+
+export interface CourseDetailType extends CourseEntryType {
+  lessons: Partial<CourseLessonType>[];
 }

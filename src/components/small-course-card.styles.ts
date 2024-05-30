@@ -18,6 +18,17 @@ export const SmallCourseCardStyled = styled.li`
     .top {
       width: 100%;
       height: 15rem;
+      position: relative;
+      a {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+        background-color: transparent;
+      }
       img {
         width: 100%;
         height: 15rem;

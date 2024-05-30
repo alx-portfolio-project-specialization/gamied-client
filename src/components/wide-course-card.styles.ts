@@ -15,12 +15,25 @@ export const WideCourseCardStyled = styled.div`
   .card-left {
     width: max-content;
     height: max-content;
+    position: relative;
     img {
       height: 10rem;
       width: 10rem;
+      max-width: 10rem;
+      max-height: 10rem;
+      overflow: hidden;
       border-radius: 1rem;
       object-fit: cover;
       aspect-ratio: 1 / 1;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
     }
   }
   .card-right {

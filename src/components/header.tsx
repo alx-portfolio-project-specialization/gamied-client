@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HeaderSearchBoxStyled, HeaderStyled } from "./header.styles";
 
 const HeaderSearchBox: React.FC = () => {
@@ -32,11 +33,14 @@ export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
         </span>
         <div className="profile-summary-area">
           <span className="summary-area-text">john doe</span>
-          <img
-            src="/illustrations/avatar1.jpg"
-            alt="avatar image of the user of the gamied platform"
-            className="summary-area-image"
-          />
+          <div className="profile-image-div">
+            <img
+              src="/illustrations/avatar1.jpg"
+              alt="avatar image of the user of the gamied platform"
+              className="summary-area-image"
+            />
+            <Link to={"/dashboard"}></Link>
+          </div>
         </div>
       </div>
     </HeaderStyled>

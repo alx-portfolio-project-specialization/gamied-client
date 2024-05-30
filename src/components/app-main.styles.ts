@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { debug } from "../styles/globals";
 
 export const AppMainStyled = styled.main`
   flex: 1;
@@ -112,7 +111,6 @@ export const CurrentCourseSectionStyled = styled.section`
   .ccs-bottom {
     height: max-content;
     min-height: 15rem;
-
   }
 `;
 
@@ -138,7 +136,6 @@ export const RecommendedCourseSectionStyled = styled.section`
       gap: 5rem;
       overflow-x: auto;
       overflow-y: hidden;
-
     }
   }
 `;

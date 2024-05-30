@@ -138,11 +138,25 @@ export const HeaderStyled = styled.header`
         justify-content: flex-end;
         margin-right: var(--margin_S);
       }
-      img {
+      .profile-image-div {
         width: 5rem;
         height: 100%;
-        object-fit: cover;
-        border-radius: 0.5rem;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 0.5rem;
+        }
+        a {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          z-index: 2;
+        }
       }
     }
   }

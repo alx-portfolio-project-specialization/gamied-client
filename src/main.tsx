@@ -27,17 +27,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "courses",
-        element: <Courses/>,
+        element: <Courses />,
         children: [
           {
             path: ":course_id",
-            element: <Course/>,
+            element: <Course />,
           },
           {
             index: true,
             element: <UserCourses courses={courseData} isGeneric={true} />,
           },
-        ]
+        ],
       },
       {
         path: "/dashboard",
@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "assessments",
-            element: <Assessments data={assessmentData}/>,
+            element: <Assessments data={assessmentData} />,
           },
         ],
       },
@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/courses/:course_id/details",
+    path: "/courses/:course_id/lessons/:lesson_id",
     element: <App variant={"no-side-tab"} />,
     children: [
       {
@@ -72,6 +72,15 @@ export const router = createBrowserRouter([
         element: <CourseDetails />,
       },
     ],
+  },
+  {
+    element: <App  />,
+    children: [
+      {
+        path: "/assessments/:assessment_id",
+        element: <CourseDetails />,
+      },
+    ]
   },
   {
     path: "/auth",

@@ -11,6 +11,7 @@ import { rankData } from "../data/user-rank";
 import { WideCourseCard } from "../components/wide-course-card";
 import { extractDMYFromDateString } from "../utils/conversion";
 import { Outlet } from "react-router-dom";
+import { courseData } from "../data/course-list";
 
 export const RankList: React.FC<{
   userProfile: StudentProfileType;
@@ -153,12 +154,13 @@ export const StudentProfileBottom: React.FC = () => {
 
       <div className="attempted-courses-area">
         <ul>
-          <li>
-            <WideCourseCard />
-          </li>
-          <li>
-            <WideCourseCard />
-          </li>
+
+          {courseData.map((entry) => {
+            return <li>
+              <WideCourseCard entry={entry}/>
+            </li>
+          })}
+
         </ul>
       </div>
     </StudentProfileBottomStyled>

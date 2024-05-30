@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import { StaticProgress } from "../pages/user-courses";
 import type { CourseEntryType } from "../types";
 import { SmallCourseCardStyled } from "./small-course-card.styles";
@@ -7,6 +8,7 @@ export const SmallCourseCard: React.FC<{
   withCTA: boolean;
   variant: "home" | "others";
 }> = ({ entry, withCTA, variant }) => {
+  const navigate = useNavigate();
   return (
     <SmallCourseCardStyled className={`course-card-wrapper ${variant}`}>
       <div className="course-card-small">
@@ -15,6 +17,7 @@ export const SmallCourseCard: React.FC<{
             src={entry.imageUrl}
             alt="image representing a course card in a list of courses"
           />
+          {!withCTA ? <Link to={`/courses/${entry.id}`}></Link> : null}
         </div>
         <div className="bottom">
           <p className="card-bottom-text">{entry.title}</p>
@@ -25,7 +28,15 @@ export const SmallCourseCard: React.FC<{
           ) : null}
           <div className="course-info-cta-area">
             <p>{entry.lessonCount} lessons</p>
-            {withCTA ? <button>View course</button> : null}
+            {withCTA ? (
+              <button
+                onClick={() => {
+                  navigate(`/courses/${entry.id}`);
+                }}
+              >
+                View course
+              </button>
+            ) : null}
           </div>
         </div>
       </div>

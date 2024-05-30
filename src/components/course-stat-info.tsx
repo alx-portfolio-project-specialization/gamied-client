@@ -59,12 +59,12 @@ export const CourseStatInfo: React.FC = () => {
           </div>
           <div className="middle">
             <div className="creator-name-title-area">
-              <h2 className="creator-name">John doe</h2>
-              <p className="creator-title">Software engineer</p>
+              <h2 className="creator-name">Gamied Edtech</h2>
+              <p className="creator-title"> gamified edtech platform</p>
             </div>
             <div className="creator-avatar-area">
               <img
-                src="/illustrations/person-admin.png"
+                src="/logo.svg"
                 alt="avatar image of a course creator on the gamied platform"
               />
             </div>

@@ -5,6 +5,7 @@ export const quizzes: QuizType[] = [
     id: "1",
     question:
       "What is the process used to verify transactions and add new blocks to a blockchain?",
+    points: 80,
     options: [
       {
         correct: true,
@@ -30,6 +31,7 @@ export const quizzes: QuizType[] = [
     id: "2",
     question:
       "What is the main advantage of using a blockchain for data storage?",
+    points: 20,
     options: [
       {
         correct: true,
@@ -55,6 +57,7 @@ export const quizzes: QuizType[] = [
     id: "3",
     question:
       "What is a smart contract and how does it function on a blockchain?",
+    points: 30,
     options: [
       {
         correct: true,
@@ -92,6 +95,7 @@ export const quizzes: QuizType[] = [
     id: "4",
     question:
       "What are some potential challenges associated with blockchain technology?",
+    points: 40,
     options: [
       {
         correct: true,
@@ -117,6 +121,7 @@ export const quizzes: QuizType[] = [
     id: "5",
     question:
       "What are some real-world applications of blockchain technology beyond cryptocurrency?",
+    points: 10,
     options: [
       {
         correct: true,

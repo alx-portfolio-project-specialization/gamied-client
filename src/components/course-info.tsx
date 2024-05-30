@@ -1,16 +1,23 @@
+import { useCallback } from "react";
+import type { CourseDetailType } from "../types";
 import { CourseAccordion } from "./course-accordion";
-import { CourseContentIcon } from "./course-content-icon";
 import { CourseInfoStyled } from "./course-info.styles";
 import { CourseStatInfo } from "./course-stat-info";
+import { convertSecondsToHms } from "../utils/conversion";
 
-export const CourseInfo: React.FC = () => {
+export const CourseInfo: React.FC<{ course: CourseDetailType }> = ({
+  course,
+}) => {
+  const courseDurationString = useCallback(() => {
+    const { hours, minutes, seconds } = convertSecondsToHms(course.duration);
+    return `${hours}hr ${minutes}min ${seconds}s`;
+  }, [course.duration]);
+
   return (
     <CourseInfoStyled>
       <h2 className="course-desc-title">About this course</h2>
       <p className="course-desc">
-        This course aims to guide students through solving the problems of
-        blockchain using tools and technologies that are well supported in the
-        community
+        {course.description || "No description provided for this course"}
       </p>
 
       <div className="course-info-area">
@@ -42,14 +49,14 @@ export const CourseInfo: React.FC = () => {
               <div className="coa-top-right">
                 <h2>Course Outline</h2>
                 <div className="course-outline-stat-div">
-                  <p>41 lessons</p> <span></span>
-                  <p>4hrs 30mins 28s Total length</p>
+                  <p>{course.lessonCount} lessons</p> <span></span>
+                  <p>{courseDurationString()} Total length</p>
                 </div>
               </div>
             </div>
 
             <div className="coa-bottom">
-              <CourseAccordion variant="outline" />
+              <CourseAccordion variant="outline" course={course} />
             </div>
           </div>
         </div>

@@ -126,6 +126,25 @@ export const CourseSideTabStyled = styled.aside`
           }
         }
       }
+      .no-content {
+        width: 100%;
+        height: 8rem;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--bg-color);
+        span {
+          width: 3rem;
+          height: 3rem;
+          svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--label-color);
+            transform: scale(0.6);
+          }
+        }
+      }
     }
   }
 `;
@@ -327,5 +346,60 @@ export const CourseAccesssmentAreaStyled = styled.div`
         }
       }
     }
+  }
+`;
+
+export const LessonContentBodyStyled = styled.div`
+  width: 100%;
+  display: flex;
+  height: max-content;
+  min-height: 120vh;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+  font-family: poppins;
+  h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    width: 100%;
+    text-align: start;
+    margin: 3rem 0;
+  }
+  h2 {
+    width: 100%;
+    height: max-content;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: var(--margin_L);
+  }
+  .resource-header-div {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+    &::after {
+      width: 100%;
+      height: 0.3rem;
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      border-radius: 2rem;
+    }
+    span {
+      font-size: 3rem;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+    p {
+      font-size: 2rem;
+    }
+  }
+  iframe {
+    width: 100%;
+    flex: 1;
   }
 `;

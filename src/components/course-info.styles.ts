@@ -168,6 +168,15 @@ export const CourseInfoStyled = styled.section`
 
           .course-outline-accordion {
             ${courseAccordionStyle};
+            .no-content {
+              width: 100%;
+              font-size: 4rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: var(--label-color);
+              height: 8rem;
+            }
           }
         }
       }

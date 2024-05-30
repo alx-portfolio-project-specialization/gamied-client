@@ -35,7 +35,7 @@ const CurrentCourseSection: React.FC = () => {
         <button className="home-section-cta">Continue Course</button>
       </div>
       <div className="ccs-bottom">
-        <WideCourseCard />
+        <WideCourseCard entry={courseData[1]} />
       </div>
     </CurrentCourseSectionStyled>
   );
@@ -53,50 +53,14 @@ const RecommendedCourseSection: React.FC<{ courses: CourseListType }> = ({
         <ul className="list-course-cards">
           {courses.slice(0, 4).map((entry) => {
             return (
-              <SmallCourseCard entry={entry} withCTA={true} variant="home" key={entry.id}/>
+              <SmallCourseCard
+                entry={entry}
+                withCTA={true}
+                variant="home"
+                key={entry.id}
+              />
             );
           })}
-          {/* <li className="list-course-card">
-            <div className="list-course-card-top">
-              <img src="/images/programming-1.jpg" alt="" />
-            </div>
-            <div className="list-course-card-bottom">
-              <p>Introduction to programming</p>
-              <div className="count-and-cta-div">
-                <h3>28 lessons</h3>
-                <button className="list-course-cta">Enroll now</button>
-              </div>
-            </div>
-          </li> */}
-
-          {/* <li className="list-course-card">
-            <div className="list-course-card-top">
-              <img
-                src="/images/sticky-notes-introduction.jpg"
-                alt=""
-              />
-            </div>
-            <div className="list-course-card-bottom">
-              <p className="course-card-title">Introduction to programming</p>
-              <div className="count-and-cta-div">
-                <h3>28 lessons</h3>
-                <button className="list-course-cta">Enroll now</button>
-              </div>
-            </div>
-          </li> */}
-
-          {/* <li className="list-course-card">
-            <div className="list-course-card-top">
-              <img src="/images/building-soft-skills.jpg" alt="" />
-            </div>
-            <div className="list-course-card-bottom">
-              <p className="course-card-title">Introduction to programming</p>
-              <div className="count-and-cta-div">
-                <h3>28 lessons</h3>
-                <button className="list-course-cta">Enroll now</button>
-              </div>
-            </div>
-          </li> */}
         </ul>
       </div>
     </RecommendedCourseSectionStyled>

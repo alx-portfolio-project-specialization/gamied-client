@@ -1,15 +1,25 @@
 import { CourseBannerStyled } from "./course-banner.styles";
+import type { CourseEntryType } from "../types";
+import { useCallback } from "react";
+import { convertSecondsToHms } from "../utils/conversion";
 
-export const CourseBanner: React.FC = () => {
+export const CourseBanner: React.FC<{ course: CourseEntryType }> = ({
+  course,
+}) => {
+  const courseDurationString = useCallback(() => {
+    const { hours, minutes, seconds } = convertSecondsToHms(course.duration);
+    return `${hours}hr ${minutes}min ${seconds}s`;
+  }, [course.duration]);
+
   return (
     <CourseBannerStyled>
       <img
-        src="/images/blockchain.jpg"
+        src={course.imageUrl}
         alt="the course banner image"
         className="banner-image"
       />
-      <h3 className="course-creator-name-text">Professor John Doe's</h3>
-      <h2 className="course-banner-title">introduction to blockchain</h2>
+      <h3 className="course-creator-name-text">Gamied Edtech's</h3>
+      <h2 className="course-banner-title">{course.title}</h2>
       <div className="course-banner-stat-div">
         <div className="stat-part">
           <span>
@@ -26,7 +36,7 @@ export const CourseBanner: React.FC = () => {
               <use xlinkHref="#clock"></use>
             </svg>
           </span>
-          <p>2hr 15mins</p>
+          <p>{courseDurationString()}</p>
         </div>
 
         <div className="stat-part">
