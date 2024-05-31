@@ -100,6 +100,7 @@ export const CourseSideTabStyled = styled.aside`
             position: relative;
             z-index: 1;
             overflow: visible;
+            opacity: 0.8;
             &::before {
               content: "";
               width: 100%;

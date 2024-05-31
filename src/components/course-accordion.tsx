@@ -13,11 +13,12 @@ const CourseLessonLayout: React.FC<{
     const { hours, minutes, seconds } = convertSecondsToHms(lesson.duration);
     return `${hours}hr ${minutes}min ${seconds}s`;
   }, [lesson.duration]);
-  const courseParams = useParams();
+  const params = useParams();
   const location = useLocation();
   const search = new URLSearchParams(location.search);
-  const courseIDParam = courseParams["course_id"];
+  const courseIDParam = params["course_id"];
   const courseID = courseIDParam || search.get("course_id");
+  const lessonIDParam = params["lesson_id"] || search.get("lesson_id") || "";
 
   return (
     <>
@@ -57,7 +58,14 @@ const CourseLessonLayout: React.FC<{
         {lesson.contents.map((content) => {
           return (
             // <></> don't forget that there's an active class functionality on the li item
-            <li className="accordion-content" key={content.id}>
+            <li
+              className={
+                +lessonIDParam === lesson.id
+                  ? "accordion-content active"
+                  : "accordion-content"
+              }
+              key={content.id}
+            >
               <span className="content-icon-wrapper">
                 <CourseContentIcon type={content.type || "text"} />
               </span>
@@ -72,7 +80,13 @@ const CourseLessonLayout: React.FC<{
         })}
 
         {!lesson.assessment.completed ? (
-          <li className="accordion-content">
+          <li
+            className={
+              +lessonIDParam === lesson.id
+                ? "accordion-content active"
+                : "accordion-content"
+            }
+          >
             <span className="content-icon-wrapper">
               <CourseContentIcon type="quiz" />
             </span>
