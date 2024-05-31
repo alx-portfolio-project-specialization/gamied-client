@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import { CountdownCircleStyled } from "../components/countdown-circle.styles";
 import { Pagination } from "../components/pagination";
-import type { CourseEntryType, CourseListType } from "../types";
+import type { CourseEntryType } from "../types";
 import { UserCoursesStyled } from "./user-courses.styles";
 import { SmallCourseCard } from "../components/small-course-card";
 import { CourseFilter } from "../components/course-filter";
+import { useLoaderData } from "react-router-dom";
+import { NoContent } from "../components/no-content";
 
 void Pagination;
 
@@ -23,7 +25,6 @@ export const StaticProgress: React.FC<{ entry: CourseEntryType }> = ({
     const radius = progressEl.r.baseVal.value;
     const circumference = radius * 2 * Math.PI;
     const stroke = circumference - (circumference * +percentage) / 100;
-    console.log("stroke is ", stroke);
 
     progressEl.style.setProperty("--stroke-dashoffset", stroke.toString());
     progressEl.style.setProperty(
@@ -61,9 +62,9 @@ export const StaticProgress: React.FC<{ entry: CourseEntryType }> = ({
 };
 
 export const UserCourses: React.FC<{
-  courses: CourseListType;
   isGeneric: boolean;
-}> = ({ courses, isGeneric }) => {
+}> = ({ isGeneric }) => {
+  const courses: CourseEntryType[] = useLoaderData() as CourseEntryType[];
   void isGeneric;
 
   return (
@@ -74,16 +75,20 @@ export const UserCourses: React.FC<{
       </div>
       <div className="courses-bottom">
         <ul className="courses-list-container">
-          {courses.map((entry) => {
-            return (
-              <SmallCourseCard
-                entry={entry}
-                withCTA={isGeneric}
-                variant="others"
-                key={entry.id}
-              />
-            );
-          })}
+          {courses.length ? (
+            courses.map((entry) => {
+              return (
+                <SmallCourseCard
+                  entry={entry}
+                  withCTA={isGeneric}
+                  variant="others"
+                  key={entry.id}
+                />
+              );
+            })
+          ) : (
+            <NoContent text="No courses to show" />
+          )}
         </ul>
 
         {/* <div className="courses-pagination-area">

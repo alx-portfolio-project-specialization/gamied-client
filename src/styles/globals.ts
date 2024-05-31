@@ -143,6 +143,30 @@ export const courseAccordionStyle = css`
   }
 `;
 
+export const noContentStyle = css`
+.no-content {
+
+  width: 100%;
+  height: 8rem;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--bg-color);
+        span {
+          width: 3rem;
+          height: 3rem;
+          svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--label-color);
+            transform: scale(0.6);
+          }
+        }
+        
+      }
+`
+
 export const GlobalStyle = createGlobalStyle`
 
 html {

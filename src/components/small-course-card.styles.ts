@@ -6,6 +6,7 @@ export const SmallCourseCardStyled = styled.li`
   justify-content: flex-start;
   border-bottom-left-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
+  max-width: 45rem;
   .course-card-small {
     width: 80%;
     height: 80%;

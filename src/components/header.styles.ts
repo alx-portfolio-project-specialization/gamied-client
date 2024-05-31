@@ -74,6 +74,9 @@ export const HeaderStyled = styled.header`
   .header-left {
     height: 5rem;
     flex: 1;
+    &.hidden {
+      visibility: hidden;
+    }
   }
   .header-right {
     width: 30rem;

@@ -1,28 +1,74 @@
-import { Link } from "react-router-dom";
+import { Form, Link, Location, useLocation, useSubmit } from "react-router-dom";
 import { HeaderSearchBoxStyled, HeaderStyled } from "./header.styles";
+import { useRef } from "react";
 
-const HeaderSearchBox: React.FC = () => {
+function calcHeaderVisible(location: Location) {
+  let res: boolean = true;
+  const pathString = location.pathname;
+  res =
+    pathString === "/dashboard/courses" ||
+    pathString === "/dashboard/courses/" ||
+    pathString.startsWith("/dashboard/courses?");
+
+  res =
+    res ||
+    pathString === "/courses" ||
+    pathString === "/courses/" ||
+    pathString.startsWith("/courses?");
+
+  return res;
+}
+
+const HeaderSearchBox: React.FC<{ dest: string }> = ({ dest }) => {
+  const location = useLocation();
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const submit = useSubmit();
+  void dest;
   return (
-    <HeaderSearchBoxStyled>
-      <input type="search" name="" id="" />
+    <Form
+      action={location.pathname}
+      onChange={(e: React.FormEvent) => {
+        e.preventDefault();
+        if (!searchInputRef.current) return;
+        void e;
+        submit(
+          { search: searchInputRef.current.value.trim() },
+          {
+            action: location.pathname,
+            encType: "application/x-www-form-urlencoded",
+          }
+        );
+      }}
+      ref={formRef}
+    >
+      <HeaderSearchBoxStyled>
+        <input type="search" name="search" id="" ref={searchInputRef} />
 
-      <span className="search-icon">
-        <input type="submit" value="" />
-        <svg>
-          <use xlinkHref="#search"></use>
-        </svg>
-      </span>
-    </HeaderSearchBoxStyled>
+        <span className="search-icon">
+          <input type="submit" value="" />
+          <svg>
+            <use xlinkHref="#search"></use>
+          </svg>
+        </span>
+      </HeaderSearchBoxStyled>
+    </Form>
   );
 };
 
 export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
   variant,
 }) => {
+  const location = useLocation();
+  const isVisible = calcHeaderVisible(location);
+
+  // console.log(searchBoxFetcher.state);
+  // console.log(location.pathname, location.search);
+
   return (
     <HeaderStyled className={`${variant === "no-side-tab" ? "shrink" : ""}`}>
-      <div className="header-left">
-        <HeaderSearchBox />
+      <div className={isVisible ? "header-left" : "header-left hidden"}>
+        <HeaderSearchBox dest={`${location.pathname}${location.search}`} />
       </div>
       <div className="header-right">
         <span className="notif-icon-area">

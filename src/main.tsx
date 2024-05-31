@@ -15,6 +15,8 @@ import { userProfile as studentUserProfile } from "./data/profile-data.ts";
 import { Courses } from "./pages/courses.tsx";
 import { Assessments } from "./pages/assessments.tsx";
 import { assessmentData } from "./data/assessments.ts";
+import { userCoursesLoader } from "./loaders/user-courses.loader.ts";
+import { userCoursesAction } from "./actions/user-courses.action.ts";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +37,9 @@ export const router = createBrowserRouter([
           },
           {
             index: true,
-            element: <UserCourses courses={courseData} isGeneric={true} />,
+            element: <UserCourses isGeneric={true} />,
+            loader: userCoursesLoader,
+            // action: userCoursesAction,
           },
         ],
       },
@@ -49,7 +53,9 @@ export const router = createBrowserRouter([
           },
           {
             path: "courses",
-            element: <UserCourses courses={courseData} isGeneric={false} />,
+            element: <UserCourses isGeneric={false} />,
+            loader: userCoursesLoader,
+            // action: userCoursesAction,
           },
           {
             path: "assessments",
@@ -74,13 +80,13 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    element: <App  />,
+    element: <App />,
     children: [
       {
         path: "/assessments/:assessment_id",
         element: <CourseDetails />,
       },
-    ]
+    ],
   },
   {
     path: "/auth",

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { courseAccordionStyle, debug } from "../styles/globals";
+import { courseAccordionStyle, debug, noContentStyle } from "../styles/globals";
 
 export const CourseDetailsStyled = styled.div`
   width: 100%;
@@ -126,25 +126,7 @@ export const CourseSideTabStyled = styled.aside`
           }
         }
       }
-      .no-content {
-        width: 100%;
-        height: 8rem;
-        font-size: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--bg-color);
-        span {
-          width: 3rem;
-          height: 3rem;
-          svg {
-            width: 100%;
-            height: 100%;
-            fill: var(--label-color);
-            transform: scale(0.6);
-          }
-        }
-      }
+      ${noContentStyle};
     }
   }
 `;
@@ -294,6 +276,15 @@ export const CourseAccesssmentAreaStyled = styled.div`
     justify-content: flex-start;
     gap: 3rem;
     margin-bottom: var(--padding_L);
+    ${noContentStyle};
+    .no-content {
+      width: 100%;
+      font-size: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: montserrat;
+    }
     & > span {
       width: 100%;
       text-align: start;

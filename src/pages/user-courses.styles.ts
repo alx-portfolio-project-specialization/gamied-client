@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { debug } from "../styles/globals";
+import { debug, noContentStyle } from "../styles/globals";
 
 export const UserCoursesStyled = styled.section`
   width: 100%;
@@ -40,6 +40,20 @@ export const UserCoursesStyled = styled.section`
       list-style-type: none;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+      ${noContentStyle};
+      .no-content {
+        color: var(--text-color);
+        font-size: 5rem;
+        margin: auto;
+        span {
+          height: 100%;
+          margin-right: 2rem;
+          svg {
+            transform: unset;
+            fill: var(--text-color);
+          }
+        }
+      }
       @media screen and (max-width: 800px) {
         grid-template-columns: repeat(1, minmax(35rem, 0.8fr));
       }

@@ -176,6 +176,7 @@ export const CourseInfoStyled = styled.section`
               justify-content: center;
               color: var(--label-color);
               height: 8rem;
+              font-family: montserrat;
             }
           }
         }

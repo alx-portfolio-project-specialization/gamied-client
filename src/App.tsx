@@ -15,7 +15,6 @@ const App: React.FC<{ variant?: "side-tab" | "no-side-tab" }> = ({
     paramsURL.get("lesson_id")
       ? "no-side-tab"
       : "side-tab");
-  console.log("app's variant is ", variant);
   return (
     <div id="app">
       {(() => {

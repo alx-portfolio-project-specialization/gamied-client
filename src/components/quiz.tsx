@@ -1,16 +1,10 @@
-import React, { useState } from "react";
 import type { QuizOptionType, QuizType } from "../types";
 
 export const Quiz: React.FC<{
   value: QuizType;
-  formData: FormData;
-  setFormData: React.Dispatch<React.SetStateAction<FormData | null>>;
   key_: number;
-}> = ({ value, formData, setFormData, key_ }) => {
-  const [selectedValue, setSelectedValue] = useState("");
-
-  void selectedValue;
-
+  assessmentID: number;
+}> = ({ value, key_, assessmentID }) => {
   return (
     <>
       <span>
@@ -23,27 +17,18 @@ export const Quiz: React.FC<{
             <div className="option" key={index}>
               <input
                 type="radio"
-                name={`${value.id}`}
-                id={`${value.id}-${opt.id}`}
-                checked={formData?.has(`${value.id}-${opt.id}`)}
+                name={`${assessmentID}-${value.id}`}
+                id={`${assessmentID}-${value.id}-${opt.id}`}
+                value={`${assessmentID}-${value.id}-${opt.id}`}
                 onChange={(e: React.FormEvent) => {
-                  const target = e.currentTarget as HTMLInputElement;
-                  if (!target.checked) {
-                    return;
+                  if ((e.currentTarget as HTMLInputElement).checked) {
+                    console.log(e.currentTarget);
                   }
-                  const newFormData = new FormData();
-                  for (const [key, val] of formData.entries()) {
-                    if (key.startsWith(value.id)) {
-                      continue;
-                    }
-                    newFormData.append(key, val);
-                  }
-                  newFormData.append(`${value.id}-${opt.id}`, target.value);
-                  setSelectedValue("on");
-                  setFormData(newFormData);
                 }}
               />
-              <label htmlFor={`${value.id}-${opt.id}`}>{opt.text}</label>
+              <label htmlFor={`${assessmentID}-${value.id}-${opt.id}`}>
+                {opt.text}
+              </label>
             </div>
           );
         })}

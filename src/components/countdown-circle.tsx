@@ -25,13 +25,13 @@ const countProgressToTime: (
 
   const data = progressText.getAttribute("data-value")!;
   let progress_value = 0;
-  const initialDuration = duration;
+  // const initialDuration = duration;
   const progress_bar = setInterval(() => {
     progress_value++;
     progressText.innerText = `${progress_value}%`;
     void action;
     action(Math.round((duration - (progress_value / 100) * duration) / 10));
-    console.log(initialDuration - duration);
+    // console.log(initialDuration - duration);
     if (progress_value === +data) {
       clearInterval(progress_bar);
     }
@@ -41,10 +41,13 @@ const countProgressToTime: (
 export const CountdownCircle: React.FC<{
   duration: number;
   setCountdownTime: React.Dispatch<React.SetStateAction<number>>;
-}> = ({ duration, setCountdownTime }) => {
+  countdownTime: number;
+}> = ({ duration, setCountdownTime, countdownTime }) => {
   const progressRef = useRef<SVGCircleElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const [mountCount, setMountCount] = useState(0);
+
+  console.log(countdownTime);
 
   useEffect(() => {
     if (progressRef && textRef && mountCount === 0) {
@@ -54,9 +57,11 @@ export const CountdownCircle: React.FC<{
         textRef.current as HTMLSpanElement,
         setCountdownTime
       );
+      if (mountCount > 1) return;
       setMountCount(mountCount + 1);
     }
   }, [progressRef, textRef, duration, setCountdownTime, mountCount]);
+
 
   return (
     <CountdownCircleStyled>

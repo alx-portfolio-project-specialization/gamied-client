@@ -3,6 +3,7 @@ import { CourseDetailType, CourseLessonType } from "../types";
 import { CourseContentIcon } from "./course-content-icon";
 import { convertSecondsToHms } from "../utils/conversion";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { NoContent } from "./no-content";
 
 const CourseLessonLayout: React.FC<{
   lesson: CourseLessonType;
@@ -69,30 +70,33 @@ const CourseLessonLayout: React.FC<{
             </li>
           );
         })}
-        <li className="accordion-content">
-          <span className="content-icon-wrapper">
-            <CourseContentIcon type="quiz" />
-          </span>
-          <Link
-            className="accordion-content-text"
-            to={`/assessments/${lesson.assessment.id}?course_id=${courseID}&lesson_id=${lesson.id}`}
-          >
-            {`Quiz: ${lesson.title}`}
-          </Link>
-          <div className="accordion-content-badge">
-            <p>{lesson.assessment.availablePoints}xp</p>
-            <svg
-              viewBox="0 0 12 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+
+        {!lesson.assessment.completed ? (
+          <li className="accordion-content">
+            <span className="content-icon-wrapper">
+              <CourseContentIcon type="quiz" />
+            </span>
+            <Link
+              className="accordion-content-text"
+              to={`/assessments/${lesson.assessment.id}?course_id=${courseID}&lesson_id=${lesson.id}`}
             >
-              <path
-                d="M0.5 14C0.367392 14 0.240215 13.9473 0.146447 13.8536C0.0526785 13.7598 0 13.6326 0 13.5V1.12906C3.57728e-05 0.998057 0.0343858 0.869347 0.0996304 0.755744C0.164875 0.642142 0.258738 0.547611 0.371875 0.481562C0.75 0.261875 1.51188 0 3 0C4.16281 0 5.46344 0.459688 6.61094 0.865C7.535 1.19156 8.40781 1.5 9 1.5C9.76233 1.49769 10.5166 1.34366 11.2188 1.04688C11.3043 1.01078 11.3974 0.996406 11.4898 1.00503C11.5822 1.01366 11.671 1.04502 11.7484 1.09632C11.8257 1.14762 11.8892 1.21726 11.9331 1.29904C11.977 1.38082 12 1.47218 12 1.565V8.42C11.9999 8.5415 11.9643 8.66033 11.8977 8.76196C11.8311 8.86358 11.7364 8.94359 11.625 8.99219C11.3528 9.11125 10.3591 9.5 9 9.5C8.24563 9.5 7.30062 9.27688 6.30031 9.04031C5.17594 8.77469 4.01344 8.5 3 8.5C1.84781 8.5 1.25813 8.67437 1 8.78469V13.5C1 13.6326 0.947321 13.7598 0.853553 13.8536C0.759785 13.9473 0.632608 14 0.5 14Z"
-                fill="#2D6B10"
-              />
-            </svg>
-          </div>
-        </li>
+              {`Quiz: ${lesson.title}`}
+            </Link>
+            <div className="accordion-content-badge">
+              <p>{lesson.assessment.availablePoints}xp</p>
+              <svg
+                viewBox="0 0 12 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.5 14C0.367392 14 0.240215 13.9473 0.146447 13.8536C0.0526785 13.7598 0 13.6326 0 13.5V1.12906C3.57728e-05 0.998057 0.0343858 0.869347 0.0996304 0.755744C0.164875 0.642142 0.258738 0.547611 0.371875 0.481562C0.75 0.261875 1.51188 0 3 0C4.16281 0 5.46344 0.459688 6.61094 0.865C7.535 1.19156 8.40781 1.5 9 1.5C9.76233 1.49769 10.5166 1.34366 11.2188 1.04688C11.3043 1.01078 11.3974 0.996406 11.4898 1.00503C11.5822 1.01366 11.671 1.04502 11.7484 1.09632C11.8257 1.14762 11.8892 1.21726 11.9331 1.29904C11.977 1.38082 12 1.47218 12 1.565V8.42C11.9999 8.5415 11.9643 8.66033 11.8977 8.76196C11.8311 8.86358 11.7364 8.94359 11.625 8.99219C11.3528 9.11125 10.3591 9.5 9 9.5C8.24563 9.5 7.30062 9.27688 6.30031 9.04031C5.17594 8.77469 4.01344 8.5 3 8.5C1.84781 8.5 1.25813 8.67437 1 8.78469V13.5C1 13.6326 0.947321 13.7598 0.853553 13.8536C0.759785 13.9473 0.632608 14 0.5 14Z"
+                  fill="#2D6B10"
+                />
+              </svg>
+            </div>
+          </li>
+        ) : null}
       </ul>
     </>
   );
@@ -120,33 +124,7 @@ export const CourseAccordion: React.FC<{
           );
         })
       ) : (
-        <div className="no-content">
-          <span>
-            <svg
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 512 512"
-              xmlSpace="preserve"
-            >
-              <g>
-                <g>
-                  <path
-                    d="M507.494,426.066L282.864,53.537c-5.677-9.415-15.87-15.172-26.865-15.172c-10.995,0-21.188,5.756-26.865,15.172
-                  L4.506,426.066c-5.842,9.689-6.015,21.774-0.451,31.625c5.564,9.852,16.001,15.944,27.315,15.944h449.259
-                  c11.314,0,21.751-6.093,27.315-15.944C513.508,447.839,513.336,435.755,507.494,426.066z M256.167,167.227
-                  c12.901,0,23.817,7.278,23.817,20.178c0,39.363-4.631,95.929-4.631,135.292c0,10.255-11.247,14.554-19.186,14.554
-                  c-10.584,0-19.516-4.3-19.516-14.554c0-39.363-4.63-95.929-4.63-135.292C232.021,174.505,242.605,167.227,256.167,167.227z
-                  M256.498,411.018c-14.554,0-25.471-11.908-25.471-25.47c0-13.893,10.916-25.47,25.471-25.47c13.562,0,25.14,11.577,25.14,25.47
-                  C281.638,399.11,270.06,411.018,256.498,411.018z"
-                  />
-                </g>
-              </g>
-            </svg>
-          </span>
-          No Lessons For This Course
-        </div>
+        <NoContent text="No Lessons For This Course" />
       )}
     </div>
   );
