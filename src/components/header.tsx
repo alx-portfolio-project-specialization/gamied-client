@@ -70,8 +70,6 @@ export const Header: React.FC<{ variant: "side-tab" | "no-side-tab" }> = ({
   const location = useLocation();
   const isVisible = calcHeaderVisible(location);
 
-  // console.log(searchBoxFetcher.state);
-  // console.log(location.pathname, location.search);
 
   return (
     <HeaderStyled className={`${variant === "no-side-tab" ? "shrink" : ""}`}>
