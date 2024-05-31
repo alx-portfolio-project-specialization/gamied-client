@@ -24,6 +24,8 @@ const HeaderSearchBox: React.FC<{ dest: string }> = ({ dest }) => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const submit = useSubmit();
+  const existingSearch = new URLSearchParams(location.search);
+
   void dest;
   return (
     <Form
@@ -43,7 +45,13 @@ const HeaderSearchBox: React.FC<{ dest: string }> = ({ dest }) => {
       ref={formRef}
     >
       <HeaderSearchBoxStyled>
-        <input type="search" name="search" id="" ref={searchInputRef} />
+        <input
+          type="search"
+          name="search"
+          id=""
+          ref={searchInputRef}
+          defaultValue={existingSearch.get("search")}
+        />
 
         <span className="search-icon">
           <input type="submit" value="" />
