@@ -16,12 +16,16 @@ import { Courses } from "./pages/courses.tsx";
 import { Assessments } from "./pages/assessments.tsx";
 import { assessmentData } from "./data/assessments.ts";
 import { userCoursesLoader } from "./loaders/user-courses.loader.ts";
-import { userCoursesAction } from "./actions/user-courses.action.ts";
+// import { userCoursesAction } from "./actions/user-courses.action.ts";
+import { rootLoader } from "./loaders/root.loader.ts";
+import { authAction } from "./actions/auth.action.ts";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App variant={"side-tab"} />,
+    id: "root",
+    loader: rootLoader,
     children: [
       {
         path: "home",
@@ -72,6 +76,8 @@ export const router = createBrowserRouter([
   {
     path: "/courses/:course_id/lessons/:lesson_id",
     element: <App variant={"no-side-tab"} />,
+    loader: rootLoader,
+    id: "lesson-root",
     children: [
       {
         index: true,
@@ -81,6 +87,8 @@ export const router = createBrowserRouter([
   },
   {
     element: <App />,
+    loader: rootLoader,
+    id: "assessment-root",
     children: [
       {
         path: "/assessments/:assessment_id",
@@ -90,7 +98,8 @@ export const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <Auth />,
+    element: <Auth />, // this is where creds are set and persisted
+    action: authAction,
     // children: [
     //   {
     //     index: true,

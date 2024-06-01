@@ -32,6 +32,8 @@ export interface UserType {
   email: string;
   isLoggedIn: boolean;
   role: "creator" | "student";
+  points: number;
+  rank: RankRange;
 }
 
 export interface ProfileType {
@@ -137,4 +139,8 @@ export interface CourseLessonType {
 
 export interface CourseDetailType extends CourseEntryType {
   lessons: Partial<CourseLessonType>[];
+}
+
+export interface AuthType {
+  token: string | null;
 }

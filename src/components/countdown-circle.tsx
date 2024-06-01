@@ -47,7 +47,9 @@ export const CountdownCircle: React.FC<{
   const textRef = useRef<HTMLSpanElement>(null);
   const [mountCount, setMountCount] = useState(0);
 
-  console.log(countdownTime);
+  void countdownTime;
+
+  // console.log(countdownTime);
 
   useEffect(() => {
     if (progressRef && textRef && mountCount === 0) {
@@ -61,7 +63,6 @@ export const CountdownCircle: React.FC<{
       setMountCount(mountCount + 1);
     }
   }, [progressRef, textRef, duration, setCountdownTime, mountCount]);
-
 
   return (
     <CountdownCircleStyled>

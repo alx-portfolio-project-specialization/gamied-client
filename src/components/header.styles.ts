@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { debug } from "../styles/globals";
 
-export const HeaderSearchBoxStyled = styled.form`
+export const HeaderSearchBoxStyled = styled.div`
   width: 30rem;
   height: 5rem;
   border-radius: 0.5rem;

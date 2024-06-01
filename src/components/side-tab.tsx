@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Logo } from "./logo";
 import { SideTabStyled } from "./side-tab.styles";
+import { AuthDao } from "../dao/auth";
 
 export const SideTab: React.FC = () => {
   const location = useLocation();
@@ -42,9 +43,17 @@ export const SideTab: React.FC = () => {
                 </Link>
               </span>
               <span className="sub-nav-item">
-                <span></span> <Link to="dashboard/assessments" className={
-                  location.pathname === "/dashboard/assessments" ? "active" : ""
-                }>assessments</Link>
+                <span></span>{" "}
+                <Link
+                  to="dashboard/assessments"
+                  className={
+                    location.pathname === "/dashboard/assessments"
+                      ? "active"
+                      : ""
+                  }
+                >
+                  assessments
+                </Link>
               </span>
               <span className="sub-nav-item">
                 <span></span>
@@ -97,13 +106,20 @@ export const SideTab: React.FC = () => {
         <div className="side-tab-cta-div">
           <button
             onMouseDown={() => {
-              navigate("/auth");
+              if (AuthDao.isAuthenticated) {
+                AuthDao.revokeTokens();
+              }
+              navigate("/auth?type=sign_in");
             }}
           >
-            LOGIN / SIGNUP
+            {AuthDao.isAuthenticated ? "LOGOUT" : "LOGIN"}
             <span>
               <svg>
+              {AuthDao.isAuthenticated ?
+                <use xlinkHref="#logout"></use>
+               :
                 <use xlinkHref="#login"></use>
+               }
               </svg>
             </span>
           </button>
